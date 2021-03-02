@@ -5,12 +5,22 @@ export interface Exams {
     Id?: string,
     Title?: string,
     SectionId?: string,
-    QuizSelector?: Array<QuizSelector>
+    QuizSelector?: Array<QuizSelector>,
+    Duration?: number
 }
 
 export interface TakenExams {
     Id?: string,
     Examinee?: string,
     CreatedDate?: number,
-    Quizzes?: Array<Quiz>
+    Quizzes?: Array<Quiz>,
+    Duration?: number
+}
+export interface SubmittedExams {
+    Id?: string,
+    Examinee?: string,
+    Quizzes?: Array<Quiz>,
+    Score?: number,
+    TotalScore?: number,
+    SubmitDate?: number
 }
