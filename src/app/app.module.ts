@@ -19,11 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NbFormFieldModule,
     HttpClientModule,
-    NbInputModule,
-
-
-
-
+    NbInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
