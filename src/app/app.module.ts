@@ -3,15 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { NbFormFieldModule, NbInputModule, NbThemeModule } from '@nebular/theme';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    NbThemeModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    NbFormFieldModule,
+    HttpClientModule,
+    NbInputModule,
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
