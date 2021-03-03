@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
 import { UserAuth, UserProfile } from 'src/app/models/user_profile.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   displayName = null;
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastService: NbToastrService
   ) { }
 
   ngOnInit(): void {
@@ -29,12 +31,13 @@ export class LoginComponent implements OnInit {
     console.log(this.password);
     this.user = { Email: this.username, Password: this.password };
     console.log(this.user);
-    // await this.authService.loginUser(this.user).then((value) => {
-    //   console.log(value);
-    //   this.router.navigate(['dashboard']);
-    // }).then((e) => {
-    //   console.log(e);
-    // })
+    await this.authService.loginUser(this.user).then((value) => {
+      console.log(value);
+      this.toastService.success(`${this.user.Email} login success`, 'Notification',);
+      this.router.navigate(['dashboard']);
+    }).then((e) => {
+      console.log(e);
+    })
   }
   async signup() {
     await this.authService.registerUser(this.user).then((value) => {
