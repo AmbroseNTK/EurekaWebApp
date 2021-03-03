@@ -14,8 +14,9 @@
                   [(ngModel)]="this.username" />
                 <input #passwordInput nbInput type="password" placeholder="Password" fullWidth shape="round"
                   style="margin-bottom:10px;" [(ngModel)]="this.password" />
-
-
+                <nb-checkbox status="basic" style="float:right" (checkedChange)="setCheckRememberMe($event)">Remembered
+                  me
+                </nb-checkbox>
               </nb-card-body>
               <nb-card-footer>
                 <button nbButton status="primary" fullWidth (click)='login()'
