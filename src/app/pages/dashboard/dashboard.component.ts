@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  tools: NbMenuItem[] = [
+    {
+      title: 'Course',
+      icon: 'layers-outline',
+      expanded: true,
+    }
+  ];
+  constructor(
+    private sidebarService: NbSidebarService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  toggle() {
+    this.sidebarService.toggle(true);
+    return false;
+  }
 }

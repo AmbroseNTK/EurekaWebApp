@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<nb-layout>
+    <nb-layout-header fixed>
+        <a href="#" (click)="toggle()">
+            <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+        <p style="margin-left: 1%; font-size: x-large;">Eureka</p>
+    </nb-layout-header>
+    <nb-layout-header subheader>
+        <nb-actions>
+            <nb-action icon="home-outline"></nb-action>
+            <nb-action icon="search-outline"></nb-action>
+            <nb-action icon="edit-outline"></nb-action>
+        </nb-actions>
+    </nb-layout-header>
+    <nb-sidebar>
+        <nb-menu [items]="tools"></nb-menu>
+    </nb-sidebar>
+    <nb-layout-column class="colored-column-basic">
+        <router-outlet></router-outlet>
+    </nb-layout-column>
+    <nb-layout-footer fixed>
+        <b>Copyright © by ITSS 2021</b>
+    </nb-layout-footer>
+</nb-layout>
