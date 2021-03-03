@@ -9,9 +9,10 @@ import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 export class DashboardComponent implements OnInit {
   tools: NbMenuItem[] = [
     {
-      title: 'Course',
+      title: 'Courses',
       icon: 'layers-outline',
       expanded: true,
+      link: 'courses'
     }
   ];
   constructor(

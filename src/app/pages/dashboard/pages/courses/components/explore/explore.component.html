@@ -1,0 +1,16 @@
+<div class="body">
+    <div class="card-row" *ngFor="let course of courses; index as i">
+        <div class="card-col">
+            <nb-card size="medium" style="border-radius: 10px;">
+                <nb-card-body style="display:grid;align-self: center; align-items: center; justify-items: center;">
+                    <img src="http://fulllook.com.vn/Default/skin/nobel/Themes/Story/media/toan.png" alt="Math"
+                        style="width: 200px; height: 200px; border-radius: 50%;" />
+                    <div style="text-align: center;">
+                        <p style="font-size: x-large; font-weight: 700; color: #5f6368;">{{course}}
+                        </p>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>
