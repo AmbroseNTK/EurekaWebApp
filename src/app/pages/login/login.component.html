@@ -1,5 +1,11 @@
 <nb-layout>
   <nb-layout-column center style="width: 10%;align-self: center;">
+    <div style="margin:50px; justify-content: center; align-items: center; display: flex;">
+      <ngx-typed-js [strings]="['Welcome to Eureka!', 'Eureka! I got it','Place for learning and growing']"
+        [backDelay]="2000" [backSpeed]="50" [loop]="true" [typeSpeed]="40">
+        <h1 class="typing"></h1>
+      </ngx-typed-js>
+    </div>
     <nb-card class="w3-container w3-center w3-animate-zoom"
       style="box-shadow:'0 10px 8px 0px rgba(0,0,0,0.2)';width: 70%; margin:'0 auto'">
       <nb-card-body>
@@ -7,7 +13,7 @@
           <nb-card-front>
             <nb-card size="medium">
               <nb-card-header style="text-align: center;">
-                <h2 i18n>Welcome to Eureka</h2>
+                <h2 i18n>Login</h2>
               </nb-card-header>
               <nb-card-body style="align-items: stretch;">
                 <input #usernameInput nbInput placeholder="Username" fullWidth shape="round" style="margin-bottom:10px;"
