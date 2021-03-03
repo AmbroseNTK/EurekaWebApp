@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { NbActionsModule, NbIconModule, NbLayoutModule, NbMenuModule, NbMenuService, NbSidebarModule, NbSidebarService } from '@nebular/theme';
+import { NbActionsModule, NbIconModule, NbLayoutModule, NbMenuModule, NbMenuService, NbSidebarModule, NbSidebarService, NbTableModule, NbTabsetModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -14,7 +14,8 @@ import { NbActionsModule, NbIconModule, NbLayoutModule, NbMenuModule, NbMenuServ
     NbSidebarModule,
     NbMenuModule,
     NbIconModule,
-    NbActionsModule
+    NbActionsModule,
+    NbTabsetModule
   ],
   providers: [NbSidebarService, NbMenuService]
 })
