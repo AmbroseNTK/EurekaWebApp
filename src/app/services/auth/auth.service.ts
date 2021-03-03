@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie';
 import { UserAuth } from 'src/app/models/user_profile.model';
 import { environment } from 'src/environments/environment';
 
@@ -9,8 +10,13 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private cookie: CookieService
+  ) {
+    if (cookie.hasKey("eureka-token")) {
+      this.setIdToken(cookie.get("eureka-token"))
+    }
+  }
 
   private idToken = null;
 
