@@ -1,84 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@nebular/theme/styles/theming';
-@import '~@nebular/theme/styles/themes/default';
 
 
-$nb-themes: nb-register-theme((
+@import 'theme01.scss';
 
-  color-primary-100: #CAFCD1,
-  color-primary-200: #98F9AE,
-  color-primary-300: #62ED90,
-  color-primary-400: #3BDB80,
-  color-primary-500: #05C46B,
-  color-primary-600: #03A86C,
-  color-primary-700: #028D68,
-  color-primary-800: #01715F,
-  color-primary-900: #005E57,
-  color-primary-transparent-100: rgba(5, 196, 107, 0.08),
-  color-primary-transparent-200: rgba(5, 196, 107, 0.16),
-  color-primary-transparent-300: rgba(5, 196, 107, 0.24),
-  color-primary-transparent-400: rgba(5, 196, 107, 0.32),
-  color-primary-transparent-500: rgba(5, 196, 107, 0.4),
-  color-primary-transparent-600: rgba(5, 196, 107, 0.48),
-  color-success-100: #DDFCD6,
-  color-success-200: #B5FAAE,
-  color-success-300: #83F183,
-  color-success-400: #61E36D,
-  color-success-500: #32D14F,
-  color-success-600: #24B34C,
-  color-success-700: #199647,
-  color-success-800: #0F7941,
-  color-success-900: #09643C,
-  color-success-transparent-100: rgba(50, 209, 79, 0.08),
-  color-success-transparent-200: rgba(50, 209, 79, 0.16),
-  color-success-transparent-300: rgba(50, 209, 79, 0.24),
-  color-success-transparent-400: rgba(50, 209, 79, 0.32),
-  color-success-transparent-500: rgba(50, 209, 79, 0.4),
-  color-success-transparent-600: rgba(50, 209, 79, 0.48),
-  color-info-100: #D3E2FE,
-  color-info-200: #A7C3FD,
-  color-info-300: #7AA1FB,
-  color-info-400: #5985F8,
-  color-info-500: #2458F4,
-  color-info-600: #1A43D1,
-  color-info-700: #1231AF,
-  color-info-800: #0B218D,
-  color-info-900: #061775,
-  color-info-transparent-100: rgba(36, 88, 244, 0.08),
-  color-info-transparent-200: rgba(36, 88, 244, 0.16),
-  color-info-transparent-300: rgba(36, 88, 244, 0.24),
-  color-info-transparent-400: rgba(36, 88, 244, 0.32),
-  color-info-transparent-500: rgba(36, 88, 244, 0.4),
-  color-info-transparent-600: rgba(36, 88, 244, 0.48),
-  color-warning-100: #FFF8CD,
-  color-warning-200: #FFEF9B,
-  color-warning-300: #FFE36A,
-  color-warning-400: #FFD845,
-  color-warning-500: #FFC507,
-  color-warning-600: #DBA405,
-  color-warning-700: #B78403,
-  color-warning-800: #936702,
-  color-warning-900: #7A5201,
-  color-warning-transparent-100: rgba(255, 197, 7, 0.08),
-  color-warning-transparent-200: rgba(255, 197, 7, 0.16),
-  color-warning-transparent-300: rgba(255, 197, 7, 0.24),
-  color-warning-transparent-400: rgba(255, 197, 7, 0.32),
-  color-warning-transparent-500: rgba(255, 197, 7, 0.4),
-  color-warning-transparent-600: rgba(255, 197, 7, 0.48),
-  color-danger-100: #FFE7D7,
-  color-danger-200: #FFCAAF,
-  color-danger-300: #FFA687,
-  color-danger-400: #FF8469,
-  color-danger-500: #FF4B38,
-  color-danger-600: #DB2B28,
-  color-danger-700: #B71C26,
-  color-danger-800: #931125,
-  color-danger-900: #7A0A24,
-  color-danger-transparent-100: rgba(255, 75, 56, 0.08),
-  color-danger-transparent-200: rgba(255, 75, 56, 0.16),
-  color-danger-transparent-300: rgba(255, 75, 56, 0.24),
-  color-danger-transparent-400: rgba(255, 75, 56, 0.32),
-  color-danger-transparent-500: rgba(255, 75, 56, 0.4),
-  color-danger-transparent-600: rgba(255, 75, 56, 0.48)
+// framework component styles
+@import '~@nebular/theme/styles/globals';
 
-), custom-theme, default);
+// install the framework styles
+@include nb-install() {
+  @include nb-theme-global();
+};

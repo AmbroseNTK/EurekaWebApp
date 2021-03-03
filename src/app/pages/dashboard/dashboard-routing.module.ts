@@ -15,7 +15,8 @@ const routes: Routes = [{
           path: 'my-courses', component: MyCoursesComponent
         }
       ]
-    }
+    },
+    { path: "users", loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule) }
   ]
 }];
 

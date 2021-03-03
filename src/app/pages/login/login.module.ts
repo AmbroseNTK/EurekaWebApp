@@ -9,9 +9,11 @@ import {
   NbIconModule,
   NbButtonModule,
   NbInputModule,
-  NbFormFieldModule
+  NbFormFieldModule,
+  NbCheckboxModule
 } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -28,6 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NbInputModule,
     NbFormFieldModule,
     NbIconModule,
+    NbCheckboxModule,
+    CookieModule.forChild()
   ]
 })
 export class LoginModule { }

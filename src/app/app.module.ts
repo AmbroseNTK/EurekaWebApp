@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NbDialogModule, NbFormFieldModule, NbGlobalPhysicalPosition, NbIconModule, NbInputModule, NbMenuModule, NbMenuService, NbSidebarModule, NbSidebarService, NbThemeModule, NbTimepickerModule, NbToastrModule } from '@nebular/theme';
+import { NbCheckboxModule, NbDialogModule, NbFormFieldModule, NbGlobalPhysicalPosition, NbIconModule, NbInputModule, NbMenuModule, NbMenuService, NbSidebarModule, NbSidebarService, NbThemeModule, NbTimepickerModule, NbToastrModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { CookieModule } from 'ngx-cookie';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     AppRoutingModule,
     NbThemeModule.forRoot(),
     FormsModule,
+    CookieModule.forRoot(),
     ReactiveFormsModule,
     NbFormFieldModule,
     HttpClientModule,
@@ -34,6 +36,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbMenuModule,
     NbMenuModule.forRoot(),
     NbDialogModule.forRoot(),
+    NbCheckboxModule
   ],
   providers: [NbSidebarService, NbMenuService],
   bootstrap: [AppComponent]
