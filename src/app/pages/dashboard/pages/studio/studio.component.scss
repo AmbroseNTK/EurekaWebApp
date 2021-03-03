@@ -1,0 +1,11 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 250px));
+
+}
+
+.backdrop-blur {
+  background-color: rgba(255, 255, 255, 0.3);
+ -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}

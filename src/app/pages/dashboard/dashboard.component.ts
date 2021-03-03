@@ -13,6 +13,12 @@ export class DashboardComponent implements OnInit {
       icon: 'layers-outline',
       expanded: true,
       link: 'courses'
+    },
+    {
+      title: 'Studio',
+      icon: 'pantone-outline',
+      expanded: true,
+      link: 'studio'
     }
   ];
   constructor(

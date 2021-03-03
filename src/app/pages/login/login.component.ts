@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.authService.setIdToken(token.toString())
       console.log(this.rememberedMe)
       if (this.rememberedMe) {
-        this.cookie.put("eureka-token", token.toString(), { sameSite: "lax", expires: new Date(Date.now() + 30 * 60000) })
+        this.cookie.put("eureka-token", token.toString(), { sameSite: "lax" }) // expires: new Date(Date.now() + 30 * 60000)
       }
       this.toastService.success(`${this.user.Email} login success`, 'Notification');
       this.router.navigate(['dashboard']);
