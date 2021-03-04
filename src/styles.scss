@@ -9,3 +9,13 @@
 @include nb-install() {
   @include nb-theme-global();
 };
+
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
+.backdrop-blur {
+  background-color: rgba(255, 255, 255, 0.3);
+ -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}

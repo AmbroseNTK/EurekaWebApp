@@ -1,17 +1,17 @@
 <nb-layout>
-    <nb-layout-header fixed>
-        <a href="#" (click)="toggle()">
-            <nb-icon icon="menu-2-outline"></nb-icon>
-        </a>
-        <p style="margin-left: 1%; font-size: x-large;">Eureka</p>
-    </nb-layout-header>
-    <nb-sidebar responsive>
-        <nb-menu [items]="tools"></nb-menu>
-    </nb-sidebar>
-    <nb-layout-column class="colored-column-basic">
-        <router-outlet></router-outlet>
-    </nb-layout-column>
-    <nb-layout-footer fixed>
-        <b>Copyright © by ITSS 2021</b>
-    </nb-layout-footer>
+  <nb-layout-header fixed>
+    <a href="#" (click)="toggle()">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <p style="margin-left: 1%; font-size: x-large;color:#fff; font-weight: bold;">Eureka</p>
+  </nb-layout-header>
+  <nb-sidebar responsive>
+    <nb-menu [items]="tools"></nb-menu>
+  </nb-sidebar>
+  <nb-layout-column class="colored-column-basic">
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+  <nb-layout-footer fixed>
+    <b>Copyright © by ITSS 2021</b>
+  </nb-layout-footer>
 </nb-layout>

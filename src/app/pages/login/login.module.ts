@@ -14,6 +14,7 @@ import {
 } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieModule } from 'ngx-cookie';
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -31,7 +32,8 @@ import { CookieModule } from 'ngx-cookie';
     NbFormFieldModule,
     NbIconModule,
     NbCheckboxModule,
-    CookieModule.forChild()
+    CookieModule.forChild(),
+    NgxTypedJsModule
   ]
 })
 export class LoginModule { }

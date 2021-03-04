@@ -14,8 +14,8 @@ import { MyCoursesComponent } from './components/my-courses/my-courses.component
     CommonModule,
     CoursesRoutingModule,
     NbTabsetModule,
-    NbRouteTabsetModule,
-    NbCardModule
+    NbCardModule,
+    NbRouteTabsetModule
   ]
 })
 export class CoursesModule { }

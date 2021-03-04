@@ -4,11 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NbCheckboxModule, NbDialogModule, NbFormFieldModule, NbGlobalPhysicalPosition, NbIconModule, NbInputModule, NbMenuModule, NbMenuService, NbSidebarModule, NbSidebarService, NbThemeModule, NbTimepickerModule, NbToastrModule } from '@nebular/theme';
+import { NbCheckboxModule, NbDatepickerModule, NbDialogModule, NbFormFieldModule, NbGlobalPhysicalPosition, NbIconModule, NbInputModule, NbMenuModule, NbMenuService, NbSidebarModule, NbSidebarService, NbThemeModule, NbTimepickerModule, NbToastrModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { CookieModule } from 'ngx-cookie';
+import { QuillModule } from 'ngx-quill';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { CookieModule } from 'ngx-cookie';
     BrowserAnimationsModule,
     AppRoutingModule,
     NbThemeModule.forRoot(),
+    QuillModule.forRoot(),
     FormsModule,
     CookieModule.forRoot(),
     ReactiveFormsModule,
@@ -36,7 +38,8 @@ import { CookieModule } from 'ngx-cookie';
     NbMenuModule,
     NbMenuModule.forRoot(),
     NbDialogModule.forRoot(),
-    NbCheckboxModule
+    NbCheckboxModule,
+    NbDatepickerModule.forRoot()
   ],
   providers: [NbSidebarService, NbMenuService],
   bootstrap: [AppComponent]

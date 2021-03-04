@@ -1,0 +1,63 @@
+<nb-card style="width: 500px;">
+  <nb-card-header>
+    <h2> Create new course</h2>
+  </nb-card-header>
+  <nb-card-body>
+    <form style="width: 100%;">
+      <p>
+        <label>
+          Course ID
+        </label>
+        <input type="text" nbInput status="basic" [formControl]="idControl">
+      </p>
+      <br>
+      <p>
+        <label>
+          Name
+        </label>
+        <input type="text" nbInput status="basic" [formControl]="nameControl">
+      </p>
+      <br>
+      <p>
+        <label>
+          Fee
+        </label>
+        <input type="number" nbInput status="basic" [formControl]="feeControl">
+      </p>
+      <br>
+      <p>
+        <label>
+          Start date
+        </label>
+        <input nbInput [nbDatepicker]="startDatepicker">
+        <nb-datepicker #startDatepicker [(date)]="startDate"></nb-datepicker>
+      </p>
+      <br>
+      <p>
+        <label>
+          Cover photo URL
+        </label>
+        <input type="url" nbInput status="basic" [formControl]="photoUrlControl">
+      </p>
+      <br>
+      <p>
+        <label>
+          Allow enroll
+        </label>
+        <nb-toggle status="basic" [formControl]="allowEnrollControl"></nb-toggle>
+      </p>
+      <br>
+      <p>
+        <label>
+          Is public
+        </label>
+        <nb-toggle status="basic" [formControl]="isPublicControl"> </nb-toggle>
+      </p>
+      <br>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="primary" (click)="create()">Create</button>
+    <button nbButton status="danger" (click)="close()" style="float:right;">Close</button>
+  </nb-card-footer>
+</nb-card>

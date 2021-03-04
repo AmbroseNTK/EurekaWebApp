@@ -22,7 +22,7 @@ export class CourseService {
     }).toPromise();
   }
   createCourse(course: Course) {
-    return this.http.post(`${environment.ENDPOINT}/courses`, {
+    return this.http.post(`${environment.ENDPOINT}/courses/`, {
       id: course.Id,
       ...course
     }, {
@@ -32,7 +32,7 @@ export class CourseService {
     }).toPromise();
   }
   updateCourse(course: Course) {
-    return this.http.put(`${environment.ENDPOINT}/courses`, {
+    return this.http.put(`${environment.ENDPOINT}/courses/`, {
       id: course.Id,
       ...course
     }, {
@@ -42,7 +42,7 @@ export class CourseService {
     }).toPromise();
   }
   deleteCourse(courseId: string) {
-    return this.http.delete(`${environment.ENDPOINT}/courses`, {
+    return this.http.delete(`${environment.ENDPOINT}/courses/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       },
@@ -55,7 +55,7 @@ export class CourseService {
     return this.http.get(`${environment.ENDPOINT}/courses/listing`).toPromise();
   }
   getCourseById(courseId: string) {
-    return this.http.get(`${environment.ENDPOINT}/courses`, {
+    return this.http.get(`${environment.ENDPOINT}/courses/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       },

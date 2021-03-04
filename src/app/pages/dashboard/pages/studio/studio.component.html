@@ -1,0 +1,50 @@
+<nb-card>
+  <nb-card-body>
+    <nb-tabset>
+      <nb-tab tabTitle="Your course">
+        <div *ngIf="!courses">Loading</div>
+        <div class="grid" *ngIf="courses">
+          <div *ngFor="let course of courses " class="w3-card-2 w3-hover-shadow"
+            style="margin:5px; width:200px; min-height: 300px;">
+            <img *ngIf="course.photo_url != ''" [src]="course.photo_url" [alt]="course.name"
+              style="width:100%; max-height: 200px;">
+            <div *ngIf="course.photo_url ==''"
+              style="width:100%; height: 200px;align-items: center;justify-items: center;display: flex;justify-content: center;">
+              <h2>{{course.name}}</h2>
+            </div>
+            <div class="w3-container w3-center">
+              <h3 style="font-size: 1.2rem;">{{course.name}}</h3>
+              <p *ngIf="course.fee !=0">Fee: {{course.fee}}</p>
+              <p *ngIf="course.fee ==0">Free</p>
+              <button nbButton size="small" (click)="selectCourse(course)">
+                <nb-icon icon="edit-outline"></nb-icon>
+              </button>
+            </div>
+          </div>
+
+          <div style="margin:5px; width:200px; min-height: 300px;">
+            <button nbButton status="primary" style="width: 100%;height:100%;" (click)="openCreateDialog()">
+              <nb-icon icon="plus-circle-outline"></nb-icon>New course
+            </button>
+          </div>
+
+        </div>
+      </nb-tab>
+      <nb-tab *ngIf="selectedCourse" tabTitle="Course Editor">
+        <app-editor [course]="selectedCourse"></app-editor>
+      </nb-tab>
+      <nb-tab tabTitle="Question Bank">
+
+      </nb-tab>
+      <nb-tab tabTitle="Examination">
+
+      </nb-tab>
+      <nb-tab tabTitle="Enrollments">
+
+      </nb-tab>
+      <nb-tab tabTitle="Test Results">
+
+      </nb-tab>
+    </nb-tabset>
+  </nb-card-body>
+</nb-card>
