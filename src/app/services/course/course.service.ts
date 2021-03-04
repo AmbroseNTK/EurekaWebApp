@@ -15,7 +15,7 @@ export class CourseService {
   ) { }
 
   getCourses() {
-    return this.http.get(`${environment.ENDPOINT}/courses`, {
+    return this.http.get(`${environment.ENDPOINT}/courses/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       }
