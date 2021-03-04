@@ -1,6 +1,8 @@
 <nb-card style="width:70vw;height: 80vh;">
   <nb-card-header>Multiple Choices Question</nb-card-header>
   <nb-card-body>
+    <p>Title</p>
+    <input nbInput fullWidth [(ngModel)]="title">
     <p>Prompt</p>
     <input nbInput fullWidth [(ngModel)]="multipleChoice.prompt">
     <nb-card status="primary" style="margin-top:10px;">
@@ -32,7 +34,8 @@
     </nb-card>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton (click)="create()" status="primary">Create</button>
+    <button *ngIf="mode=='create'" nbButton (click)="create()" status="primary">Create</button>
+    <button *ngIf="mode=='update'" nbButton (click)="update()" status="primary">Save changes</button>
     <button nbButton (click)="close()" status="danger" style="float:right;">Close</button>
 
   </nb-card-footer>

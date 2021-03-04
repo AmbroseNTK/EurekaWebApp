@@ -15,7 +15,7 @@ export class QuizService {
   ) { }
 
   getQuizOfCourse(courseId: string) {
-    return this.http.get(`${environment.ENDPOINT}/courses/quiz/`, {
+    return this.http.get(`${environment.ENDPOINT}/courses/quiz`, {
       headers: {
         Authorization: this.auth.getIdToken()
       },
@@ -51,6 +51,17 @@ export class QuizService {
       },
       params: {
         course: courseId
+      }
+    }).toPromise();
+  }
+  deleteQuiz(courseId: string, quizId: string) {
+    return this.http.delete(`${environment.ENDPOINT}/courses/quiz`, {
+      headers: {
+        Authorization: this.auth.getIdToken()
+      },
+      params: {
+        course: courseId,
+        quiz: quizId
       }
     }).toPromise();
   }
