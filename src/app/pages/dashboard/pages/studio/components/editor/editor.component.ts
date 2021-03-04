@@ -80,6 +80,7 @@ export class EditorComponent implements OnInit, OnChanges {
       Start_Date: Date.parse(this.startDateControl.value),
       author_name: this.authorNameControl.value,
       Marketing_Content: this.course.marketing_content
+
     }).then(() => {
       this.toast.success("", "Updated");
     }).catch((err) => {
