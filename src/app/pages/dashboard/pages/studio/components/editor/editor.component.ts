@@ -54,13 +54,13 @@ export class EditorComponent implements OnInit, OnChanges {
 
   updateInfo() {
     this.courseService.updateCourse({
-      Id: this.course.id,
-      Name: this.nameControl.value,
-      Fee: this.feeControl.value,
+      id: this.course.id,
+      name: this.nameControl.value,
+      fee: this.feeControl.value,
       photo_url: this.photoUrlControl.value,
-      Allow_Enroll: this.allowEnrollControl.value,
-      Is_Public: this.isPublicControl.value,
-      Start_Date: Date.parse(this.startDateControl.value),
+      allow_enroll: this.allowEnrollControl.value,
+      is_public: this.isPublicControl.value,
+      start_date: Date.parse(this.startDateControl.value),
       author_name: this.authorNameControl.value
     }).then(() => {
       this.toast.success("", "Updated");
@@ -71,15 +71,15 @@ export class EditorComponent implements OnInit, OnChanges {
 
   updateMarketingContent() {
     this.courseService.updateCourse({
-      Id: this.course.id,
-      Name: this.nameControl.value,
-      Fee: this.feeControl.value,
+      id: this.course.id,
+      name: this.nameControl.value,
+      fee: this.feeControl.value,
       photo_url: this.photoUrlControl.value,
-      Allow_Enroll: this.allowEnrollControl.value,
-      Is_Public: this.isPublicControl.value,
-      Start_Date: Date.parse(this.startDateControl.value),
+      allow_enroll: this.allowEnrollControl.value,
+      is_public: this.isPublicControl.value,
+      start_date: Date.parse(this.startDateControl.value),
       author_name: this.authorNameControl.value,
-      Marketing_Content: this.course.marketing_content
+      marketing_content: this.course.marketing_content
 
     }).then(() => {
       this.toast.success("", "Updated");

@@ -49,13 +49,13 @@ export class CreateCourseComponent implements OnInit {
   async create() {
     try {
       await this.course.createCourse({
-        Id: this.idControl.value,
-        Name: this.nameControl.value,
-        Fee: this.feeControl.value,
-        Allow_Enroll: this.allowEnrollControl.value,
-        Is_Public: this.isPublicControl.value,
+        id: this.idControl.value,
+        name: this.nameControl.value,
+        fee: this.feeControl.value,
+        allow_enroll: this.allowEnrollControl.value,
+        is_public: this.isPublicControl.value,
         photo_url: this.photoUrlControl.value,
-        Start_Date: Date.parse(this.startDate),
+        start_date: Date.parse(this.startDate),
         author_name: "Admin"
       });
       this.toast.success(`Created course [${this.idControl.value}]`, "Created course");

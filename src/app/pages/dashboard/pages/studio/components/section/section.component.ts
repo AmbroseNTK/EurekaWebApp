@@ -24,7 +24,7 @@ export class SectionComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.courseService.getSectionsOfCourse()
+    this.courseService
   }
 
 }
