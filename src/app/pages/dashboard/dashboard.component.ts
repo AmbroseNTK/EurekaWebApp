@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NbMenuItem, NbSidebarService } from '@nebular/theme';
+import { UserProfile } from 'src/app/models/user_profile.model';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,15 +23,26 @@ export class DashboardComponent implements OnInit {
       link: 'studio'
     }
   ];
+  user: any;
   constructor(
-    private sidebarService: NbSidebarService
+    private sidebarService: NbSidebarService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
+    this.getUserProfile();
   }
 
   toggle() {
     this.sidebarService.toggle(true);
     return false;
+  }
+  getUserProfile() {
+    this.userService.getAccountOfUser().then((value) => {
+      this.user = value;
+      console.log(this.user);
+    }).catch((e) => {
+      console.log(e);
+    });
   }
 }

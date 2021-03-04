@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { NbActionsModule, NbCardModule, NbIconModule, NbLayoutModule, NbMenuModule, NbMenuService, NbSidebarModule, NbSidebarService, NbTableModule, NbTabsetModule } from '@nebular/theme';
+import { NbActionsModule, NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbMenuModule, NbMenuService, NbPopoverModule, NbSidebarModule, NbSidebarService, NbTableModule, NbTabsetModule, NbUserModule } from '@nebular/theme';
+import { UserService } from 'src/app/services/user/user.service';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -16,8 +17,11 @@ import { NbActionsModule, NbCardModule, NbIconModule, NbLayoutModule, NbMenuModu
     NbIconModule,
     NbActionsModule,
     NbTabsetModule,
-    NbCardModule
+    NbCardModule,
+    NbUserModule,
+    NbPopoverModule,
+    NbButtonModule
   ],
-  providers: [NbSidebarService, NbMenuService]
+  providers: [NbSidebarService, NbMenuService, UserService]
 })
 export class DashboardModule { }

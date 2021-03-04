@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NbCheckboxModule, NbDatepickerModule, NbDialogModule, NbFormFieldModule, NbGlobalPhysicalPosition, NbIconModule, NbInputModule, NbMenuModule, NbMenuService, NbSidebarModule, NbSidebarService, NbThemeModule, NbTimepickerModule, NbToastrModule } from '@nebular/theme';
+import { NbCardModule, NbCheckboxModule, NbDatepickerModule, NbDialogModule, NbFormFieldModule, NbGlobalPhysicalPosition, NbIconModule, NbInputModule, NbMenuModule, NbMenuService, NbPopoverModule, NbSidebarModule, NbSidebarService, NbThemeModule, NbTimepickerModule, NbToastrModule, NbUserModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
@@ -39,7 +39,10 @@ import { QuillModule } from 'ngx-quill';
     NbMenuModule.forRoot(),
     NbDialogModule.forRoot(),
     NbCheckboxModule,
-    NbDatepickerModule.forRoot()
+    NbDatepickerModule.forRoot(),
+    NbCardModule,
+    NbUserModule,
+    NbPopoverModule,
   ],
   providers: [NbSidebarService, NbMenuService],
   bootstrap: [AppComponent]
