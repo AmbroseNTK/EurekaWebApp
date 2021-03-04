@@ -22,7 +22,7 @@ export class UserService {
     }).toPromise();
   }
   getAccountOfUser() {
-    return this.http.get(`${environment.ENDPOINT}/users/account/`, {
+    return this.http.get(`${environment.ENDPOINT}/users/account`, {
       headers: {
         Authorization: this.auth.getIdToken()
       }

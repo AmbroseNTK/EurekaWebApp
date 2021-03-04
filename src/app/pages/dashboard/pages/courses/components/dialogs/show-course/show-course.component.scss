@@ -1,0 +1,16 @@
+.vertical-line{
+    width: 1px; /* Line width */
+    background-color: black; /* Line color */
+    height: 100%; /* Override in-line if you want specific height. */
+    float: left; /* Causes the line to float to left of content. 
+      You can instead use position:absolute or display:inline-block
+      if this fits better with your design */
+  }
+
+  .body{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(5px, 200px));
+        // grid-gap: 5px 5px;
+        
+  
+  }
