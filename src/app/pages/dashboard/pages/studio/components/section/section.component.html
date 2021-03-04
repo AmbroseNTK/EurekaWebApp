@@ -2,7 +2,7 @@
   <nb-accordion-item>
     <nb-accordion-item-header>
       <p *ngIf="current!=undefined">{{current.name}}</p>
-      <p *ngIf="current==undefined">Your course</p>
+      <p *ngIf="current['id']==''">Your course</p>
       <span style="flex:'1 auto'"></span>
       <button *ngIf="current" nbButton status="basic" (click)="update()" style="margin-right: 20px;">
         <nb-icon icon="edit"></nb-icon>
