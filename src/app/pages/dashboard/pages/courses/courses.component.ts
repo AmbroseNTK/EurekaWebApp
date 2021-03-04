@@ -18,7 +18,8 @@ export class CoursesComponent implements OnInit {
       title: 'Explore',
       route: '/dashboard/courses/explore',
       icon: 'home-outline',
-      responsive: true
+      responsive: true,
+      active: true
     },
     {
       title: 'My Courses',
