@@ -1,12 +1,12 @@
 <nb-layout>
   <nb-layout-header fixed>
     <a href="#" (click)="toggle()">
-      <nb-icon icon="menu-2-outline"></nb-icon>
+      <nb-icon icon="menu-2-outline" style="color: #fff;"></nb-icon>
     </a>
     <p style="margin-left: 1%; font-size: x-large;color:#fff; font-weight: bold;">Eureka</p>
   </nb-layout-header>
-  <nb-sidebar>
-    <nb-menu [items]="tools"></nb-menu>
+  <nb-sidebar responsive>
+    <nb-menu [items]="tools" style="font-size: x-large;"></nb-menu>
   </nb-sidebar>
   <nb-layout-column class="colored-column-basic">
     <router-outlet></router-outlet>

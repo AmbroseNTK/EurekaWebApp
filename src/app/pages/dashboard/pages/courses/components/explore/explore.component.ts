@@ -21,7 +21,7 @@ export class ExploreComponent implements OnInit {
   }
 
   onExplore() {
-    this.courseService.getCourses().then((course) => {
+    this.courseService.listingPublicCourse().then((course) => {
       console.log(course);
       this.courses = course as Array<Course>;
     }).catch(error => console.log(error));
