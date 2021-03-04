@@ -1,0 +1,63 @@
+<h1>Course:</h1>
+<nb-card>
+  <nb-card-header>
+    General Information
+  </nb-card-header>
+  <nb-card-body>
+    <label>ID</label>
+    <input type="text" nbInput status="basic" fullWidth disabled [value]="course['id']">
+    <label>Name</label>
+    <input type="text" nbInput status="basic" fullWidth [formControl]="nameControl">
+    <label>Author name</label>
+    <input type="text" nbInput status="basic" fullWidth [formControl]="authorNameControl">
+    <label>Fee</label>
+    <input type="number" nbInput status="basic" fullWidth [formControl]="feeControl">
+    <label>Start date</label>
+    <input nbInput [nbDatepicker]="startDatepicker" fullWidth [formControl]="startDateControl">
+    <nb-datepicker #startDatepicker (dateChange)="setStartDate($event)"></nb-datepicker>
+    <label>Cover photo URL</label>
+    <input type="url" nbInput status="basic" fullWidth [formControl]="photoUrlControl">
+    <label>Allow enroll</label><br>
+    <nb-toggle status="basic" fullWidth [formControl]="allowEnrollControl"></nb-toggle><br>
+    <label>Is public</label><br>
+    <nb-toggle status="basic" fullWidth [formControl]="isPublicControl"></nb-toggle>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton (click)="updateInfo()" status="primary">Update</button>
+  </nb-card-footer>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+    Marketing Content
+  </nb-card-header>
+  <nb-card-body>
+    <quill-editor style="min-height: 500px;" (onContentChanged)="setMarketingContent($event)"
+      [innerHTML]="course.Marketing_Content"></quill-editor>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton (click)="updateMarketingContent()" status="primary">Save changes</button>
+  </nb-card-footer>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+    Sections
+  </nb-card-header>
+  <nb-card-body>
+
+  </nb-card-body>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+    Danger Zone
+  </nb-card-header>
+  <nb-card-body>
+    <p>
+      Change the owner of this course
+    </p>
+    <button nbButton status="warning">Owner transfer</button>
+    <p>
+      Delete this course permanently
+    </p>
+    <button nbButton status="danger">Delete</button>
+  </nb-card-body>
+</nb-card>

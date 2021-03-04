@@ -14,6 +14,7 @@ export class StudioComponent implements OnInit {
   constructor(private courseService: CourseService, private dialog: NbDialogService) { }
 
   public courses: Array<Course>;
+  public selectedCourse: Course = null;
 
   ngOnInit(): void {
     this.courses = [];
@@ -32,6 +33,12 @@ export class StudioComponent implements OnInit {
     diag.onClose.toPromise().then(() => {
       this.loadCourses();
     });
+  }
+
+  public selectCourse(course) {
+    console.log(course as Course);
+    this.selectedCourse = <Course>course;
+
   }
 
 }

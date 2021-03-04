@@ -54,9 +54,9 @@ export class CreateCourseComponent implements OnInit {
         Fee: this.feeControl.value,
         Allow_Enroll: this.allowEnrollControl.value,
         Is_Public: this.isPublicControl.value,
-        Photo_Url: this.photoUrlControl.value,
+        photo_url: this.photoUrlControl.value,
         Start_Date: Date.parse(this.startDate),
-        AuthorName: "Admin"
+        author_name: "Admin"
       });
       this.toast.success(`Created course [${this.idControl.value}]`, "Created course");
       this.ref.close();

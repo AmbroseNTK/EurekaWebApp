@@ -6,13 +6,22 @@
         <div class="grid" *ngIf="courses">
           <div *ngFor="let course of courses " class="w3-card-2 w3-hover-shadow"
             style="margin:5px; width:200px; min-height: 300px;">
-            <img [src]="course.photo_url" [alt]="course.name" style="width:100%; max-height: 200px;">
+            <img *ngIf="course.photo_url != ''" [src]="course.photo_url" [alt]="course.name"
+              style="width:100%; max-height: 200px;">
+            <div *ngIf="course.photo_url ==''"
+              style="width:100%; height: 200px;align-items: center;justify-items: center;display: flex;justify-content: center;">
+              <h2>{{course.name}}</h2>
+            </div>
             <div class="w3-container w3-center">
               <h3 style="font-size: 1.2rem;">{{course.name}}</h3>
               <p *ngIf="course.fee !=0">Fee: {{course.fee}}</p>
               <p *ngIf="course.fee ==0">Free</p>
+              <button nbButton size="small" (click)="selectCourse(course)">
+                <nb-icon icon="edit-outline"></nb-icon>
+              </button>
             </div>
           </div>
+
           <div style="margin:5px; width:200px; min-height: 300px;">
             <button nbButton status="primary" style="width: 100%;height:100%;" (click)="openCreateDialog()">
               <nb-icon icon="plus-circle-outline"></nb-icon>New course
@@ -21,63 +30,8 @@
 
         </div>
       </nb-tab>
-      <nb-tab tabTitle="Course Editor">
-        <h1>Course:</h1>
-        <nb-card>
-          <nb-card-header>
-            General Information
-          </nb-card-header>
-          <nb-card-body>
-            <label>ID</label>
-            <input type="text" nbInput status="basic" fullWidth disabled>
-            <label>Name</label>
-            <input type="text" nbInput status="basic" fullWidth>
-            <label>Author name</label>
-            <input type="text" nbInput status="basic" fullWidth>
-            <label>Fee</label>
-            <input type="number" nbInput status="basic" fullWidth>
-            <label>Start date</label>
-            <input nbInput [nbDatepicker]="startDatepicker" fullWidth>
-            <nb-datepicker #startDatepicker></nb-datepicker>
-            <label>Cover photo URL</label>
-            <input type="url" nbInput status="basic" fullWidth>
-            <label>Allow enroll</label><br>
-            <nb-toggle status="basic" fullWidth></nb-toggle><br>
-            <label>Is public</label><br>
-            <nb-toggle status="basic" fullWidth> </nb-toggle>
-          </nb-card-body>
-        </nb-card>
-        <nb-card>
-          <nb-card-header>
-            Marketing Content
-          </nb-card-header>
-          <nb-card-body>
-            <quill-editor style="min-height: 500px;"></quill-editor>
-          </nb-card-body>
-        </nb-card>
-        <nb-card>
-          <nb-card-header>
-            Sections
-          </nb-card-header>
-          <nb-card-body>
-
-          </nb-card-body>
-        </nb-card>
-        <nb-card>
-          <nb-card-header>
-            Danger Zone
-          </nb-card-header>
-          <nb-card-body>
-            <p>
-              Change the owner of this course
-            </p>
-            <button nbButton status="warning">Owner transfer</button>
-            <p>
-              Delete this course permanently
-            </p>
-            <button nbButton status="danger">Delete</button>
-          </nb-card-body>
-        </nb-card>
+      <nb-tab *ngIf="selectedCourse" tabTitle="Course Editor">
+        <app-editor [course]="selectedCourse"></app-editor>
       </nb-tab>
       <nb-tab tabTitle="Question Bank">
 

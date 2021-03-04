@@ -1,13 +1,13 @@
 export interface Course {
   Id: string,
   Name?: string,
-  AuthorName?: string,
+  author_name?: string,
   AuthorEmail?: string,
   Fee?: number,
   Start_Date?: number,
   Allow_Enroll?: boolean
   Is_Public?: boolean
-  Photo_Url?: string
+  photo_url?: string
   Marketing_Content?: string
 }
 
