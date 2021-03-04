@@ -69,4 +69,11 @@ export class UserService {
       }
     }).toPromise();
   }
+  getEnrolledCourses() {
+    return this.http.get(`${environment.ENDPOINT}/courses/`, {
+      headers: {
+        Authorization: this.auth.getIdToken()
+      }
+    }).toPromise();
+  }
 }

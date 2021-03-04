@@ -15,7 +15,7 @@ export class StudioComponent implements OnInit {
 
   public courses: Array<Course>;
   public selectedCourse: Course = null;
-
+  currentTab = 'Your course'
   ngOnInit(): void {
     this.courses = [];
     this.loadCourses();
@@ -38,7 +38,7 @@ export class StudioComponent implements OnInit {
   public selectCourse(course) {
     console.log(course as Course);
     this.selectedCourse = <Course>course;
-
+    this.currentTab = 'Course Editor';
   }
 
 }
