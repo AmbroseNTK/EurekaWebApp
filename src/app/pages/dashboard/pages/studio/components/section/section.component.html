@@ -1,6 +1,9 @@
 <nb-accordion>
   <nb-accordion-item>
-    <nb-accordion-item-header>Product Details</nb-accordion-item-header>
+    <nb-accordion-item-header>
+      {{current['name']}}
+      <button nbButton status="primary" style="float:right;">Add child</button>
+    </nb-accordion-item-header>
     <nb-accordion-item-body>
       Item Content
     </nb-accordion-item-body>

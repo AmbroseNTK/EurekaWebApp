@@ -78,6 +78,18 @@ export class CourseService {
     }).toPromise();
   }
 
+  getSectionsOfCourseByParent(courseId: string, parentId: string = "") {
+    return this.http.get(`${environment.ENDPOINT}/courses/sections`, {
+      headers: {
+        Authorization: this.auth.getIdToken()
+      },
+      params: {
+        course: courseId,
+        parent: parentId
+      }
+    }).toPromise();
+  }
+
   createSectionOfCourse(section: CourseSection) {
     return this.http.post(`${environment.ENDPOINT}/courses/sections`, {
       id: section.Id,
