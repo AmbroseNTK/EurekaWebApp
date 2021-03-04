@@ -1,0 +1,53 @@
+<nb-card style="width: 70vw; height: 80vh;">
+  <nb-card-header>
+    <h2 *ngIf="mode=='create'"> Create new course</h2>
+    <h2 *ngIf="mode=='update'"> Update course</h2>
+  </nb-card-header>
+  <nb-card-body>
+    <form style="width: 100%;">
+      <p>
+        <label>
+          Course ID
+        </label>
+        <input type="text" nbInput status="basic" [value]="courseId" disabled>
+      </p>
+      <br>
+      <p>
+        <label>
+          Parent Name
+        </label>
+        <input type="text" nbInput status="basic" [value]="parentName" disabled>
+      </p>
+      <br>
+      <p>
+        <label>
+          Name
+        </label>
+        <input type="text" nbInput status="basic" [formControl]="nameControl">
+      </p>
+      <br>
+      <p>
+        <label>
+          Cover photo URL
+        </label>
+        <input type="url" nbInput status="basic" [formControl]="photoUrlControl">
+      </p>
+      <br>
+
+      <br>
+    </form>
+    <p>
+      <label>
+        Content
+      </label>
+      <br>
+      <quill-editor style="min-height: 500px;" (onContentChanged)="setContent($event)" [(ngModel)]="content">
+      </quill-editor>
+    </p>
+  </nb-card-body>
+  <nb-card-footer>
+    <button *ngIf="mode=='create'" nbButton status="primary" (click)="create()">Create</button>
+    <button *ngIf="mode=='update'" nbButton status="primary" (click)="update()">Save changes</button>
+    <button nbButton status="danger" (click)="close()" style="float:right;">Close</button>
+  </nb-card-footer>
+</nb-card>
