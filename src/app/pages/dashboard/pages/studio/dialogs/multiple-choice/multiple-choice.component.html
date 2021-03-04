@@ -1,0 +1,39 @@
+<nb-card style="width:70vw;height: 80vh;">
+  <nb-card-header>Multiple Choices Question</nb-card-header>
+  <nb-card-body>
+    <p>Prompt</p>
+    <input nbInput fullWidth [(ngModel)]="multipleChoice.prompt">
+    <nb-card status="primary" style="margin-top:10px;">
+      <nb-card-header>Choices</nb-card-header>
+      <nb-card-body>
+        <nb-list style="width:100%;">
+          <nb-list-item *ngFor="let choice of multipleChoice.choices; let i = index">
+            <nb-card style="width: 100%;">
+              <nb-card-body>
+                <p>Id</p>
+                <input nbInput fullWidth [(ngModel)]="multipleChoice.choices[i].id">
+                <p>Mark</p>
+                <input nbInput type="number" fullWidth [(ngModel)]="multipleChoice.choices[i].mark">
+                <p>Content</p>
+                <quill-editor [(ngModel)]="multipleChoice.choices[i].content"></quill-editor>
+              </nb-card-body>
+              <nb-card-footer>
+                <button nbButton status="danger">
+                  <nb-icon icon="close-outline" (click)="removeChoice()"></nb-icon>
+                </button>
+              </nb-card-footer>
+            </nb-card>
+          </nb-list-item>
+          <nb-list-item>
+            <button nbButton status="primary" fullWidth (click)="addChoice()">New choice</button>
+          </nb-list-item>
+        </nb-list>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton (click)="create()" status="primary">Create</button>
+    <button nbButton (click)="close()" status="danger" style="float:right;">Close</button>
+
+  </nb-card-footer>
+</nb-card>
