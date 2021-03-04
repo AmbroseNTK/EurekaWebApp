@@ -1,4 +1,4 @@
-<h1>Course:</h1>
+<h1>Course: {{course['name']}}</h1>
 <nb-card>
   <nb-card-header>
     General Information
@@ -32,7 +32,7 @@
   </nb-card-header>
   <nb-card-body>
     <quill-editor style="min-height: 500px;" (onContentChanged)="setMarketingContent($event)"
-      [innerHTML]="course.Marketing_Content"></quill-editor>
+      [(ngModel)]="course['marketing_content']"></quill-editor>
   </nb-card-body>
   <nb-card-footer>
     <button nbButton (click)="updateMarketingContent()" status="primary">Save changes</button>

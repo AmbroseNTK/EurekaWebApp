@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { StudioRoutingModule } from './studio-routing.module';
 import { StudioComponent } from './studio.component';
-import { NbBadgeModule, NbButtonModule, NbCardModule, NbDatepickerModule, NbDialogModule, NbIconModule, NbInputModule, NbRouteTabsetModule, NbTabsetModule, NbToastrModule, NbToggleModule } from '@nebular/theme';
+import { NbAccordionModule, NbBadgeModule, NbButtonModule, NbCardModule, NbDatepickerModule, NbDialogModule, NbIconModule, NbInputModule, NbRouteTabsetModule, NbTabsetModule, NbToastrModule, NbToggleModule } from '@nebular/theme';
 import { CreateCourseComponent } from './dialogs/create-course/create-course.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import { EditorComponent } from './components/editor/editor.component';
+import { SectionComponent } from './components/section/section.component';
 
 
 @NgModule({
-  declarations: [StudioComponent, CreateCourseComponent, EditorComponent],
+  declarations: [StudioComponent, CreateCourseComponent, EditorComponent, SectionComponent],
   imports: [
     CommonModule,
     StudioRoutingModule,
@@ -28,6 +29,7 @@ import { EditorComponent } from './components/editor/editor.component';
     NbToastrModule,
     NbBadgeModule,
     NbRouteTabsetModule,
+    NbAccordionModule,
     QuillModule
   ]
 })
