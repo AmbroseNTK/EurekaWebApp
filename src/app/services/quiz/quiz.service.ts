@@ -30,6 +30,7 @@ export class QuizService {
       question: quiz.question,
       answer: quiz.answer,
       correctanswer: quiz.correctanswer,
+      score: quiz.score,
       type: quiz.type,
       last_update: quiz.last_update
     }, {
