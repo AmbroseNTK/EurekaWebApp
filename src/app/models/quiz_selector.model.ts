@@ -1,7 +1,7 @@
 export interface QuizSelector {
-    Id?: string,
-    SelectionId?: string,
-    List?: Array<string>,
-    Shuffle?: boolean,
-    Filter?: string
+    _id?: string,
+    sectionId?: string,
+    list?: Array<string>,
+    shuffle?: boolean,
+    filter?: string
 }

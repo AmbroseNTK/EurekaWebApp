@@ -1,4 +1,4 @@
 export interface Account {
-    Email?: string,
-    Balance?: number
+    email?: string,
+    balance?: number
 }

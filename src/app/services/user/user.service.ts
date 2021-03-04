@@ -15,21 +15,21 @@ export class UserService {
   ) { }
 
   getEmailOfUser() {
-    return this.http.get(`${environment.ENDPOINT}/users`, {
+    return this.http.get(`${environment.ENDPOINT}/users/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       }
     }).toPromise();
   }
   getAccountOfUser() {
-    return this.http.get(`${environment.ENDPOINT}/users/account`, {
+    return this.http.get(`${environment.ENDPOINT}/users/account/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       }
     }).toPromise();
   }
   getTransactionsOfUser() {
-    return this.http.get(`${environment.ENDPOINT}/users/transactions`, {
+    return this.http.get(`${environment.ENDPOINT}/users/transactions/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       }
@@ -38,12 +38,12 @@ export class UserService {
 
   createUserProfile(user: UserProfile) {
     return this.http.post(`${environment.ENDPOINT}/users`, {
-      email: user.Email,
-      display_name: user.DisplayName,
-      phone_number: user.PhoneNumber,
-      gender: user.Gender,
-      dob: user.DOB,
-      role: user.Role
+      email: user.email,
+      display_name: user.display_name,
+      phone_number: user.phone_number,
+      gender: user.gender,
+      dob: user.dob,
+      role: user.role
     }, {
       headers: {
         Authorization: this.auth.getIdToken()
@@ -53,9 +53,9 @@ export class UserService {
 
   updateUserProfile(user: UpdatedUserProfile) {
     return this.http.put(`${environment.ENDPOINT}/users`, {
-      display_name: user.DisplayName,
-      phone_number: user.PhoneNumber,
-      role: user.Role
+      display_name: user.display_name,
+      phone_number: user.phone_number,
+      role: user.role
     }, {
       headers: {
         Authorization: this.auth.getIdToken()

@@ -1,17 +1,17 @@
 export interface UserProfile {
-    DisplayName?: string,
-    Email?: string,
-    PhoneNumber?: string,
-    Gender?: string,
-    DOB?: number,
-    Role?: string
+    display_name?: string,
+    email?: string,
+    phone_number?: string,
+    gender?: string,
+    dob?: number,
+    role?: string
 }
 export interface UpdatedUserProfile {
-    DisplayName?: string,
-    PhoneNumber?: string,
-    Role?: string
+    display_name?: string,
+    phone_number?: string,
+    role?: string
 }
 export interface UserAuth {
-    Email?: string,
-    Password?: string
+    email?: string,
+    password?: string
 }
