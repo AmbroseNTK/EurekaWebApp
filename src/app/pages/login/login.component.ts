@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   async login() {
     console.log(this.username);
     console.log(this.password);
-    this.user = { Email: this.username, Password: this.password };
+    this.user = { email: this.username, password: this.password };
     console.log(this.user);
     try {
       let token = (await this.authService.loginUser(this.user))["token"]
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       if (this.rememberedMe) {
         this.cookie.put("eureka-token", token.toString(), { sameSite: "lax" }) // expires: new Date(Date.now() + 30 * 60000)
       }
-      this.toastService.success(`${this.user.Email} login success`, 'Notification');
+      this.toastService.success(`${this.user.email} login success`, 'Notification');
       this.router.navigate(['dashboard']);
 
     }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses.component';
-import { NbCardModule, NbRouteTabsetModule, NbTabsetModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbIconModule, NbRouteTabsetModule, NbSpinnerModule, NbTabsetModule } from '@nebular/theme';
 import { ExploreComponent } from './components/explore/explore.component';
 import { MyCoursesComponent } from './components/my-courses/my-courses.component';
 
@@ -15,7 +15,10 @@ import { MyCoursesComponent } from './components/my-courses/my-courses.component
     CoursesRoutingModule,
     NbTabsetModule,
     NbCardModule,
-    NbRouteTabsetModule
+    NbRouteTabsetModule,
+    NbIconModule,
+    NbButtonModule,
+    NbSpinnerModule
   ]
 })
 export class CoursesModule { }
