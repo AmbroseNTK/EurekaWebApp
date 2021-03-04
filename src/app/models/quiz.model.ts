@@ -1,10 +1,10 @@
 export interface Quiz {
-    Id?: string,
-    CourseId?: string,
-    Question?: string,
-    Answer?: string,
-    Score?: number,
-    CorrectAnswer?: string,
-    Type?: string,
-    LastUpdate?: number
+    _id?: string,
+    course_id?: string,
+    question?: string,
+    answer?: string,
+    score?: number,
+    correctanswer?: string,
+    type?: string,
+    last_update?: number
 }

@@ -14,7 +14,7 @@ export class EnrollmentService {
   ) { }
 
   getCourseEnrolled(courseId: string) {
-    return this.http.get(`${environment.ENDPOINT}/courses/enrollment`, {
+    return this.http.get(`${environment.ENDPOINT}/courses/enrollment/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       },

@@ -23,7 +23,7 @@ export class CourseService {
   }
   createCourse(course: Course) {
     return this.http.post(`${environment.ENDPOINT}/courses/`, {
-      id: course.Id,
+      id: course.id,
       ...course
     }, {
       headers: {
@@ -33,7 +33,7 @@ export class CourseService {
   }
   updateCourse(course: Course) {
     return this.http.put(`${environment.ENDPOINT}/courses/`, {
-      id: course.Id,
+      id: course.id,
       ...course
     }, {
       headers: {
@@ -92,7 +92,7 @@ export class CourseService {
 
   createSectionOfCourse(section: CourseSection) {
     return this.http.post(`${environment.ENDPOINT}/courses/sections`, {
-      id: section.Id,
+      id: section._id,
       ...section
     }, {
       headers: {
@@ -115,7 +115,7 @@ export class CourseService {
 
   updateSectionOfCourse(section: CourseSection) {
     return this.http.put(`${environment.ENDPOINT}/courses/sections`, {
-      id: section.Id,
+      id: section._id,
       ...section
     }, {
       headers: {

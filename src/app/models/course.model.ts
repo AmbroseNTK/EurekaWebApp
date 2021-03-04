@@ -1,21 +1,21 @@
 export interface Course {
-  Id: string,
-  Name?: string,
+  id?: string,
+  name?: string,
   author_name?: string,
-  AuthorEmail?: string,
-  Fee?: number,
-  Start_Date?: number,
-  Allow_Enroll?: boolean
-  Is_Public?: boolean
+  author_email?: string,
+  fee?: number,
+  start_date?: number,
+  allow_enroll?: boolean
+  is_public?: boolean
   photo_url?: string
-  Marketing_Content?: string
+  marketing_content?: string
 }
 
 export interface CourseSection {
-  Id?: string,
-  CourseId?: string
-  Name?: string
-  Parent?: string
-  PhotoUrl?: string
-  Content?: string
+  _id?: string,
+  course_id?: string
+  name?: string
+  parent?: string
+  photo_url?: string
+  content?: string
 }

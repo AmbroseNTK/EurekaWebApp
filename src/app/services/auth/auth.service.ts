@@ -28,14 +28,14 @@ export class AuthService {
   }
   registerUser(user: UserAuth) {
     return this.http.post(`${environment.ENDPOINT}/auth/register`, {
-      email: user.Email,
-      password: user.Password
+      email: user.email,
+      password: user.password
     }).toPromise();
   }
   loginUser(user: UserAuth) {
     return this.http.post(`${environment.ENDPOINT}/auth/login`, {
-      email: user.Email,
-      password: user.Password
+      email: user.email,
+      password: user.password
     }).toPromise();
   }
 }
