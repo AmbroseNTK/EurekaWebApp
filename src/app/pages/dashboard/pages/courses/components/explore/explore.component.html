@@ -27,7 +27,7 @@
         </div>
         <div class="w3-container w3-center">
             <h3 style="font-size: 1.2rem;">{{course.name}}</h3>
-            <p *ngIf="course.fee !=0"><strong>Fee:</strong> {{course.fee}}</p>
+            <p *ngIf="course.fee !=0"><strong>Fee:</strong> {{miscService.convert2VND(course.fee)}}</p>
             <p *ngIf="course.fee ==0"><strong>Free</strong> </p>
             <button nbButton size="medium" status="success" style="right: 0; bottom: 0;"
                 (click)="onShowCourseDetail(course)">

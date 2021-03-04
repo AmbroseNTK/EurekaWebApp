@@ -3,6 +3,7 @@ import { NbDialogService } from '@nebular/theme';
 import { CookieService } from 'ngx-cookie';
 import { Course } from 'src/app/models/course.model';
 import { CourseService } from 'src/app/services/course/course.service';
+import { MiscService } from 'src/app/services/misc/misc.service';
 import { ShowCourseComponent } from '../dialogs/show-course/show-course.component';
 
 @Component({
@@ -16,7 +17,8 @@ export class ExploreComponent implements OnInit {
   constructor(
     private courseService: CourseService,
     private cookie: CookieService,
-    private dialog: NbDialogService
+    private dialog: NbDialogService,
+    public miscService: MiscService
   ) { }
 
   async ngOnInit() {
