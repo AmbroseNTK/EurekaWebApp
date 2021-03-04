@@ -1,4 +1,4 @@
 export interface StudentInvitation {
-    CourseId?: string,
-    Email?: string
+    course_id?: string,
+    email?: string
 }

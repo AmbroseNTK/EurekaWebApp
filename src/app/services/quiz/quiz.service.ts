@@ -15,7 +15,7 @@ export class QuizService {
   ) { }
 
   getQuizOfCourse(courseId: string) {
-    return this.http.get(`${environment.ENDPOINT}/courses/quiz`, {
+    return this.http.get(`${environment.ENDPOINT}/courses/quiz/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       },
@@ -26,12 +26,12 @@ export class QuizService {
   }
   createQuiz(courseId: string, quiz: Quiz) {
     return this.http.post(`${environment.ENDPOINT}/courses/quiz`, {
-      course_id: quiz.CourseId,
-      question: quiz.Question,
-      answer: quiz.Answer,
-      correctanswer: quiz.CorrectAnswer,
-      type: quiz.Type,
-      last_update: quiz.LastUpdate
+      course_id: quiz.course_id,
+      question: quiz.question,
+      answer: quiz.answer,
+      correctanswer: quiz.correctanswer,
+      type: quiz.type,
+      last_update: quiz.last_update
     }, {
       headers: {
         Authorization: this.auth.getIdToken()
@@ -42,7 +42,7 @@ export class QuizService {
   }
   updateQuiz(courseId: string, quiz: Quiz) {
     return this.http.put(`${environment.ENDPOINT}/courses/quiz`, {
-      id: quiz.Id,
+      id: quiz._id,
       ...quiz
     }, {
       headers: {

@@ -40,7 +40,7 @@ export class EditorComponent implements OnInit, OnChanges {
     this.photoUrlControl = new FormControl(this.course['photo_url']);
     this.authorNameControl = new FormControl(this.course['author_name']);
     this.startDateControl = new FormControl(new Date(this.course['start_date']));
-    this.marketingContent = this.course.Marketing_Content;
+    this.marketingContent = this.course.marketing_content;
   }
 
   setStartDate(date) {
@@ -54,7 +54,7 @@ export class EditorComponent implements OnInit, OnChanges {
 
   updateInfo() {
     this.courseService.updateCourse({
-      Id: this.course['id'],
+      Id: this.course.id,
       Name: this.nameControl.value,
       Fee: this.feeControl.value,
       photo_url: this.photoUrlControl.value,
@@ -71,7 +71,7 @@ export class EditorComponent implements OnInit, OnChanges {
 
   updateMarketingContent() {
     this.courseService.updateCourse({
-      Id: this.course['id'],
+      Id: this.course.id,
       Name: this.nameControl.value,
       Fee: this.feeControl.value,
       photo_url: this.photoUrlControl.value,
@@ -79,7 +79,7 @@ export class EditorComponent implements OnInit, OnChanges {
       Is_Public: this.isPublicControl.value,
       Start_Date: Date.parse(this.startDateControl.value),
       author_name: this.authorNameControl.value,
-      Marketing_Content: this.course.Marketing_Content
+      Marketing_Content: this.course.marketing_content
     }).then(() => {
       this.toast.success("", "Updated");
     }).catch((err) => {
