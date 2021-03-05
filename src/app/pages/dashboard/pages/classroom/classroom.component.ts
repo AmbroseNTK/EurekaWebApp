@@ -16,7 +16,7 @@ export class ClassroomComponent implements OnInit {
   courseId = "";
   course: Course = null;
 
-  outline: Array<NbMenuItem> = [];
+  //outline: Array<NbMenuItem> = [];
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(async (params) => {
@@ -35,7 +35,7 @@ export class ClassroomComponent implements OnInit {
         return;
       }
       console.log(bag.item.data['id']);
-      this.router.navigate([`./section/${bag.item.data['id']}`], { relativeTo: this.activatedRoute }).then((r) => console.log(r)).catch((e) => console.log(e))
+      this.router.navigate([`./section/${bag.item.data['id']}`]).then((r) => console.log(r)).catch((e) => console.log(e))
     })
   }
 
@@ -56,7 +56,8 @@ export class ClassroomComponent implements OnInit {
         title: section.name,
         data: section,
         link: `section/${section['id']}`,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        expanded: true
       });
       return;
     }
@@ -73,6 +74,7 @@ export class ClassroomComponent implements OnInit {
       let sections = outline as Array<CourseSection>;
       let root: NbMenuItem = {
         title: 'Course outline',
+        expanded: true,
         data: {
           id: ''
         }
@@ -81,6 +83,7 @@ export class ClassroomComponent implements OnInit {
         this.buildOutlineTree(sections[i], root);
       }
       this.menuService.addItems([root], 'outline');
+
     })
   }
 }

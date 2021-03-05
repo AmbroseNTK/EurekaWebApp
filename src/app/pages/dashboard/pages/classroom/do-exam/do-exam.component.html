@@ -1,0 +1,45 @@
+<nb-card style="width:80vw;height: 90vh;">
+  <nb-card-header>
+    <h2>
+      {{exam.title}}
+    </h2>
+  </nb-card-header>
+  <nb-card-header *ngIf="submission">
+    <h3>
+      Score: {{submission.score}}/{{submission.totalscore}}
+    </h3>
+  </nb-card-header>
+  <nb-card-header *ngIf="!finished">
+    Remaining time: {{remainingMinutes}} mins {{remainingSeconds}} seconds
+    <nb-progress-bar [value]="elapsedTimePercent" size="tiny" status="primary"></nb-progress-bar>
+  </nb-card-header>
+  <nb-card-body>
+    <nb-list style="height: 100%;width: 100%;">
+      <nb-list-item *ngFor="let quiz of takenExams.quizzes; let i = index;">
+        <nb-card *ngIf="quiz.type=='multiple_choices'" style="width: 100%;">
+          <nb-card-header>
+            <div>{{parsedQuiz[i]['prompt']}}</div>
+          </nb-card-header>
+          <nb-card-header *ngIf="submission">
+            <h5 *ngIf="submission.quizzes[i]['score']>0" status="success">Got: {{submission.quizzes[i]['score']}}</h5>
+            <h5 *ngIf="submission.quizzes[i]['score']==0" status="danger">Got: 0</h5>
+          </nb-card-header>
+          <nb-card-body>
+            <nb-radio-group [(value)]="quiz.answer" [name]="quiz.id">
+              <nb-radio *ngFor="let choice of parsedQuiz[i]['choices']" [value]="choice.id" [disabled]="finished">
+                <div [innerHTML]="choice.content"></div>
+              </nb-radio>
+            </nb-radio-group>
+          </nb-card-body>
+        </nb-card>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+  <nb-card-footer>
+    <button *ngIf="!finished" nbButton status="primary" style="float:right;" (click)="submit()">Submit</button>
+    <button *ngIf="finished" nbButton status="primary" style="float:right;" (click)="viewResult()">View
+      Result</button>
+    <button *ngIf="finished" nbButton status="primary" style="float:right;margin-right: 10px;"
+      (click)="close()">Close</button>
+  </nb-card-footer>
+</nb-card>

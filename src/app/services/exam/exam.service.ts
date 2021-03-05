@@ -15,7 +15,7 @@ export class ExamService {
   ) { }
 
   getExams(courseId: string, sectionId: string) {
-    return this.http.get(`${environment.ENDPOINT}/exams`, {
+    return this.http.get(`${environment.ENDPOINT}/exams/`, {
       headers: {
         Authorization: this.auth.getIdToken()
       },
@@ -43,7 +43,7 @@ export class ExamService {
     }).toPromise();
   }
   takeExam(courseId: string, examId: string) {
-    return this.http.get(`${environment.ENDPOINT}/exams/taken`, {
+    return this.http.get(`${environment.ENDPOINT}/exams/take`, {
       headers: {
         Authorization: this.auth.getIdToken()
       },

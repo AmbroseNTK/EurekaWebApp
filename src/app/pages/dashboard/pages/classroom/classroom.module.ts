@@ -3,18 +3,28 @@ import { CommonModule } from '@angular/common';
 
 import { ClassroomRoutingModule } from './classroom-routing.module';
 import { ClassroomComponent } from './classroom.component';
-import { NbCardModule, NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbDialogModule, NbFormFieldModule, NbInputModule, NbLayoutModule, NbListModule, NbMenuModule, NbProgressBarModule, NbRadioModule, NbSidebarModule, NbToastrModule } from '@nebular/theme';
+import { TakeExamComponent } from './take-exam/take-exam.component';
+import { DoExamComponent } from './do-exam/do-exam.component';
 
 
 @NgModule({
-  declarations: [ClassroomComponent],
+  declarations: [ClassroomComponent, TakeExamComponent, DoExamComponent],
   imports: [
     CommonModule,
     ClassroomRoutingModule,
     NbLayoutModule,
     NbSidebarModule,
+    NbInputModule,
+    NbFormFieldModule,
+    NbButtonModule,
     NbMenuModule,
-    NbCardModule
+    NbCardModule,
+    NbDialogModule,
+    NbToastrModule,
+    NbProgressBarModule,
+    NbListModule,
+    NbRadioModule
   ]
 })
 export class ClassroomModule { }

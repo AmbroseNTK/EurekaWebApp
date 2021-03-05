@@ -1,0 +1,17 @@
+<nb-card style="width: 50vw;height: 70vh;">
+  <nb-card-header>
+    <h2>Take exam: {{exam.title}}</h2>
+    <br>
+    <h3>
+      Duration : {{exam.duration/60000}} mins
+    </h3>
+
+  </nb-card-header>
+  <nb-card-body>
+    <p><i>No taken exams</i></p>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="primary" (click)="take()">Take</button>
+    <button nbButton status="danger" style="float:right;" (click)="close()">Close</button>
+  </nb-card-footer>
+</nb-card>

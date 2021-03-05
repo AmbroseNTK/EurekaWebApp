@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { SectionRoutingModule } from './section-routing.module';
 import { SectionComponent } from './section.component';
-import { NbButtonModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbDialogModule, NbFormFieldModule, NbInputModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,13 @@ import { NbButtonModule } from '@nebular/theme';
   imports: [
     CommonModule,
     SectionRoutingModule,
-    NbButtonModule
+    NbInputModule,
+    NbFormFieldModule,
+    FormsModule,
+    NbButtonModule,
+    NbCardModule,
+    NbDialogModule,
+
   ]
 })
 export class SectionModule { }
