@@ -1,4 +1,3 @@
-<p>section: {{sectionId}}</p>
 <div class="w3-card-4" *ngIf="section" style="margin:5px;" status="primary">
 
   <header class="w3-container w3-card-primary">
@@ -17,6 +16,8 @@
   </header>
 
   <div class="w3-container">
-    <div [innerHTML]="section.content"></div>
+    <div class="grid-exams">
+      <button nbButton style="width: 100%;height: 150px;" status="warning">Exam 1</button>
+    </div>
   </div>
 </div>

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { SectionRoutingModule } from './section-routing.module';
 import { SectionComponent } from './section.component';
+import { NbButtonModule } from '@nebular/theme';
 
 
 @NgModule({
   declarations: [SectionComponent],
   imports: [
     CommonModule,
-    SectionRoutingModule
+    SectionRoutingModule,
+    NbButtonModule
   ]
 })
 export class SectionModule { }

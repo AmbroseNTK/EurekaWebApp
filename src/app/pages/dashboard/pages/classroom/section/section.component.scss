@@ -7,3 +7,11 @@
 .w3-card-warning {
   background-color: nb-theme(color-warning-500);
 }
+
+
+.grid-exams {
+  margin:10px;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+}
