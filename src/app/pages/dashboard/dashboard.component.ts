@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
       title: 'Courses',
       icon: 'layers-outline',
       expanded: true,
-      link: 'courses'
+      link: 'courses/explore'
     },
     {
       title: 'Studio',

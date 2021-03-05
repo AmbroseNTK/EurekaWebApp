@@ -7,8 +7,12 @@
             <div>
                 <h1>{{course.name}}</h1>
                 <h5>{{course.author_name}}</h5>
-                <h5>Fee: {{course.fee}} credits</h5>
-                <button nbButton status="success" style="float: bottom;">Enroll</button>
+                <h5>Fee: {{miscService.convert2VND(course.fee)}}</h5>
+                <button nbButton outline status="success" style="float: bottom;" *ngIf="course.allow_enroll"
+                    (click)="onEnroll(course.id)">Enroll</button>
+                <button nbButton ghost outline status="danger" style="float: bottom;"
+                    *ngIf="!course.allow_enroll">Cannot
+                    Enroll</button>
             </div>
 
         </div>
