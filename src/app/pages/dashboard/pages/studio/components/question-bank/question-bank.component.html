@@ -12,18 +12,31 @@
     <nb-card-body>
       <nb-list style="width:100%">
         <nb-list-item *ngFor="let quiz of quizzes" style="width:100%">
-          <p>
+          <!-- <p>
             ID : {{quiz.id}}
           </p>
           <p>Type: {{quiz.type}}</p>
-          <p>{{quiz.title}}</p>
+          <p>{{quiz.title}}</p> -->
+          <nb-accordion style="width:100%">
+            <nb-accordion-item>
+              <nb-accordion-item-header>{{quiz.title}}</nb-accordion-item-header>
+              <nb-accordion-item-body>
+                <p>
+                  <strong>ID:</strong> {{quiz.id}}
+                </p>
+                <p><strong>Type:</strong> {{quiz.type}}</p>
+                <!-- <p><strong>Updated:</strong> {{miscService.convert2Date(quiz.last_update)}}</p> -->
+                <button nbButton style="margin:5px;" (click)="edit(quiz)">
+                  <nb-icon icon="edit"></nb-icon>Edit
+                </button>
+                <button nbButton status="danger" style="margin:5px;" (click)="delete(quiz)">
+                  <nb-icon icon="close-outline"></nb-icon>Delete
+                </button>
 
-          <button nbButton style="float:right;margin:5px;" (click)="edit(quiz)">
-            <nb-icon icon="edit"></nb-icon>
-          </button>
-          <button nbButton status="danger" style="margin:5px;" (click)="delete(quiz)">
-            <nb-icon icon="close-outline"></nb-icon>
-          </button>
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
         </nb-list-item>
       </nb-list>
     </nb-card-body>

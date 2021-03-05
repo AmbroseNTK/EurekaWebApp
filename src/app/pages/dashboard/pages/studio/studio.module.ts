@@ -36,7 +36,8 @@ import { ExaminationComponent } from './components/examination/examination.compo
     NbRouteTabsetModule,
     NbAccordionModule,
     NbListModule,
-    QuillModule
+    QuillModule,
+    NbAccordionModule
   ]
 })
 export class StudioModule { }

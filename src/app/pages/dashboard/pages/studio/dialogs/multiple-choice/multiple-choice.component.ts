@@ -14,7 +14,6 @@ export class MultipleChoiceComponent implements OnInit {
   constructor(private ref: NbDialogRef<MultipleChoiceComponent>, private quizService: QuizService, private toast: NbToastrService) { }
 
   mode = 'create';
-
   @Input()
   public courseId;
 
@@ -40,6 +39,9 @@ export class MultipleChoiceComponent implements OnInit {
 
   create() {
     console.log(this.multipleChoice);
+    if (this.quiz.title == undefined || this.quiz.title.length == 0) {
+      this.quiz.title = this.multipleChoice.prompt;
+    }
     this.quizService.createQuiz(this.courseId, {
       title: this.quiz.title,
       course_id: this.courseId,
@@ -58,7 +60,8 @@ export class MultipleChoiceComponent implements OnInit {
       title: this.quiz.title,
       course_id: this.courseId,
       question: JSON.stringify(this.multipleChoice),
-      type: "multiple_choices"
+      type: "multiple_choices",
+      last_update: Date.now()
     }).then(() => {
       this.ref.close();
     }).catch((err) => {
