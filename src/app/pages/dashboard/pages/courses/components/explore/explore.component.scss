@@ -25,6 +25,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(5px, 220px));
     grid-gap: 5px 5px;
+    margin:10px;
 }
 .control-status {
   background-color:nb-theme(background-basic-color-1);

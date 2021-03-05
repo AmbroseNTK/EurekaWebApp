@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NbMenuItem, NbSidebarService } from '@nebular/theme';
+import { NbDialogService, NbMenuItem, NbSidebarService } from '@nebular/theme';
 import { UserProfile } from 'src/app/models/user_profile.model';
 import { UserService } from 'src/app/services/user/user.service';
+import { LogoutComponent } from './pages/dialogs/logout/logout.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,7 +27,8 @@ export class DashboardComponent implements OnInit {
   user: any;
   constructor(
     private sidebarService: NbSidebarService,
-    private userService: UserService
+    private userService: UserService,
+    private dialog: NbDialogService
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +45,15 @@ export class DashboardComponent implements OnInit {
       console.log(this.user);
     }).catch((e) => {
       console.log(e);
+    });
+  }
+  onLogout() {
+    let dialog = this.dialog.open(LogoutComponent, {
+      context: {
+
+      }, hasBackdrop: true,
+      backdropClass: 'backdrop-blur',
+      closeOnBackdropClick: false,
     });
   }
 }
