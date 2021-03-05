@@ -19,4 +19,7 @@ export class MiscService {
     }
     return title;
   }
+  convert2Date(value: number) {
+    return new Date(value).toISOString();
+  }
 }

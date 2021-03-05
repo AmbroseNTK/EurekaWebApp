@@ -3,6 +3,7 @@ import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { Course } from 'src/app/models/course.model';
 import { MultipleChoices } from 'src/app/models/multiple_choices.models';
 import { Quiz } from 'src/app/models/quiz.model';
+import { MiscService } from 'src/app/services/misc/misc.service';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 import { MultipleChoiceComponent } from '../../dialogs/multiple-choice/multiple-choice.component';
 
@@ -13,7 +14,7 @@ import { MultipleChoiceComponent } from '../../dialogs/multiple-choice/multiple-
 })
 export class QuestionBankComponent implements OnInit, OnChanges {
 
-  constructor(private dialog: NbDialogService, private quizService: QuizService, private toast: NbToastrService) { }
+  constructor(private dialog: NbDialogService, private quizService: QuizService, private toast: NbToastrService, public miscService: MiscService) { }
 
 
   @Input()

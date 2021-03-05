@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Pipe } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { NbDialogRef, NbToastrService } from '@nebular/theme';
 import { Course } from 'src/app/models/course.model';
 import { EnrollmentService } from 'src/app/services/enrollment/enrollment.service';
@@ -15,14 +16,16 @@ export class ShowCourseComponent implements OnInit {
   constructor(public dialogRef: NbDialogRef<ShowCourseComponent>,
     private enrollService: EnrollmentService,
     private toastService: NbToastrService,
-    public miscService: MiscService
+    public miscService: MiscService,
+    private sanitizer: DomSanitizer
   ) { }
 
 
   course: Course;
-  maketingContent: string;
+  maketingContent: any;
+
   ngOnInit(): void {
-    this.maketingContent = this.course.marketing_content
+    this.maketingContent = this.sanitizer.bypassSecurityTrustHtml(this.course.marketing_content)
   }
 
   close() {
