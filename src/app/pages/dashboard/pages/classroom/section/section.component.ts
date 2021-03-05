@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CourseSection } from 'src/app/models/course.model';
+import { CourseService } from 'src/app/services/course/course.service';
 
 @Component({
   selector: 'app-section',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService) { }
+
+  sectionId = "";
+
+  section: CourseSection = null;
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      this.sectionId = params['id'];
+      this.section = this.courseService.currentSection;
+    })
   }
 
 }

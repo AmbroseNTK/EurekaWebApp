@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NbMenuItem, NbMenuService } from '@nebular/theme';
 import { Course, CourseSection } from 'src/app/models/course.model';
 import { CourseService } from 'src/app/services/course/course.service';
@@ -11,7 +11,7 @@ import { CourseService } from 'src/app/services/course/course.service';
 })
 export class ClassroomComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService, private menuService: NbMenuService) { }
+  constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService, private menuService: NbMenuService, private router: Router) { }
 
   courseId = "";
   course: Course = null;
@@ -24,9 +24,23 @@ export class ClassroomComponent implements OnInit {
       await this.loadCourse();
       await this.loadOutline();
     });
+
+    this.menuService.onItemClick().subscribe((bag) => {
+      this.courseService.currentSection = bag.item.data;
+    });
+    this.menuService.onSubmenuToggle().subscribe((bag) => {
+
+      this.courseService.currentSection = bag.item.data;
+      if (bag.item.data['id'] == '') {
+        return;
+      }
+      console.log(bag.item.data['id']);
+      this.router.navigate([`./section/${bag.item.data['id']}`], { relativeTo: this.activatedRoute }).then((r) => console.log(r)).catch((e) => console.log(e))
+    })
   }
 
   loadCourse() {
+    this.courseService.currentCourseId = this.courseId;
     return this.courseService.getCourseById(this.courseId).then((course) => {
       this.course = course as Course;
       console.log(this.course);
@@ -40,7 +54,9 @@ export class ClassroomComponent implements OnInit {
       }
       current.children.push({
         title: section.name,
-        data: section
+        data: section,
+        link: `section/${section['id']}`,
+        pathMatch: 'full'
       });
       return;
     }
@@ -67,5 +83,4 @@ export class ClassroomComponent implements OnInit {
       this.menuService.addItems([root], 'outline');
     })
   }
-
 }

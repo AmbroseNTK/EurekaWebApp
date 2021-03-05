@@ -6,9 +6,16 @@
     <nb-card-header>
       <h1>Course: {{course.name}}</h1>
     </nb-card-header>
-    <nb-card-body class="grid">
-      <nb-menu [items]="outline" style="box-shadow:0 4px 8px 0px rgba(0,0,0,0.2);" tag="outline"></nb-menu>
+    <nb-card-body>
+      <div class="grid" style="width: 100%;">
+        <div>
+          <nb-menu [items]="outline" style="box-shadow:0 4px 8px 0px rgba(0,0,0,0.2);" tag="outline"></nb-menu>
+        </div>
+        <div style="margin-left: 10px;">
+          <router-outlet></router-outlet>
+        </div>
 
+      </div>
 
     </nb-card-body>
   </nb-card>

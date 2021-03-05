@@ -14,6 +14,26 @@ export class CourseService {
     private auth: AuthService
   ) { }
 
+  private _currentCourseId = "";
+
+  public get currentCourseId(): string {
+    return this._currentCourseId;
+  }
+
+  public set currentCourseId(courseId: string) {
+    this._currentCourseId = courseId;
+  }
+
+  private _currentSection: CourseSection;
+
+  public get currentSection() {
+    return this._currentSection;
+  }
+
+  public set currentSection(section: CourseSection) {
+    this._currentSection = section;
+  }
+
   getCourses() {
     return this.http.get(`${environment.ENDPOINT}/courses/`, {
       headers: {

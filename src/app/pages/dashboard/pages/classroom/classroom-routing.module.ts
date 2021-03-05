@@ -3,7 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ClassroomComponent } from './classroom.component';
 
-const routes: Routes = [{ path: '', component: ClassroomComponent }];
+const routes: Routes = [{
+  path: '', component: ClassroomComponent, children: [
+    { path: 'section/:id', loadChildren: () => import('./section/section.module').then(m => m.SectionModule) },
+  ]
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

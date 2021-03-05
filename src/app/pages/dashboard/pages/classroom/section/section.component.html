@@ -1,1 +1,22 @@
-<p>section works!</p>
+<p>section: {{sectionId}}</p>
+<div class="w3-card-4" *ngIf="section" style="margin:5px;" status="primary">
+
+  <header class="w3-container w3-card-primary">
+    <h5>{{section.name}}</h5>
+  </header>
+
+  <div class="w3-container">
+    <div [innerHTML]="section.content"></div>
+  </div>
+</div>
+
+<div class="w3-card-4" *ngIf="section" style="margin:10px 5px 5px 5px;" status="primary">
+
+  <header class="w3-container w3-card-warning">
+    <h5>Examinations</h5>
+  </header>
+
+  <div class="w3-container">
+    <div [innerHTML]="section.content"></div>
+  </div>
+</div>
