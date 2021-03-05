@@ -29,13 +29,13 @@ export class ClassroomComponent implements OnInit {
       this.courseService.currentSection = bag.item.data;
     });
     this.menuService.onSubmenuToggle().subscribe((bag) => {
-
+      console.log(bag);
       this.courseService.currentSection = bag.item.data;
       if (bag.item.data['id'] == '') {
         return;
       }
       console.log(bag.item.data['id']);
-      this.router.navigate([`./section/${bag.item.data['id']}`]).then((r) => console.log(r)).catch((e) => console.log(e))
+      this.router.navigate([`./section/${bag.item.data['id']}`], { relativeTo: this.activatedRoute }).then((r) => console.log(r)).catch((e) => console.log(e))
     })
   }
 
@@ -56,8 +56,8 @@ export class ClassroomComponent implements OnInit {
         title: section.name,
         data: section,
         link: `section/${section['id']}`,
+        expanded: true,
         pathMatch: 'full',
-        expanded: true
       });
       return;
     }
