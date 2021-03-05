@@ -12,10 +12,11 @@ import { SectionComponent } from './components/section/section.component';
 import { SectionFormComponent } from './dialogs/section-form/section-form.component';
 import { QuestionBankComponent } from './components/question-bank/question-bank.component';
 import { MultipleChoiceComponent } from './dialogs/multiple-choice/multiple-choice.component';
+import { ExaminationComponent } from './components/examination/examination.component';
 
 
 @NgModule({
-  declarations: [StudioComponent, CreateCourseComponent, EditorComponent, SectionComponent, SectionFormComponent, QuestionBankComponent, MultipleChoiceComponent],
+  declarations: [StudioComponent, CreateCourseComponent, EditorComponent, SectionComponent, SectionFormComponent, QuestionBankComponent, MultipleChoiceComponent, ExaminationComponent],
   imports: [
     CommonModule,
     StudioRoutingModule,

@@ -31,8 +31,7 @@
     Marketing Content
   </nb-card-header>
   <nb-card-body>
-    <quill-editor style="min-height: 500px;" (onContentChanged)="setMarketingContent($event)"
-      [(ngModel)]="course['marketing_content']"></quill-editor>
+    <quill-editor style="min-height: 500px;" [(ngModel)]="marketingContent"></quill-editor>
   </nb-card-body>
   <nb-card-footer>
     <button nbButton (click)="updateMarketingContent()" status="primary">Save changes</button>
