@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ClassroomRoutingModule } from './classroom-routing.module';
 import { ClassroomComponent } from './classroom.component';
-import { NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
+import { NbCardModule, NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
     ClassroomRoutingModule,
     NbLayoutModule,
     NbSidebarModule,
-    NbMenuModule
+    NbMenuModule,
+    NbCardModule
   ]
 })
 export class ClassroomModule { }

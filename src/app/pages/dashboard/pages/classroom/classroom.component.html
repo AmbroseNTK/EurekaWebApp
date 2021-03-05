@@ -1,6 +1,15 @@
+<nb-sidebar>
+
+</nb-sidebar>
 <nb-layout-column>
-  <nb-sidebar>
-    <nb-menu [items]="outline"></nb-menu>
-  </nb-sidebar>
+  <nb-card *ngIf="course" style="min-height: 70vh;">
+    <nb-card-header>
+      <h1>Course: {{course.name}}</h1>
+    </nb-card-header>
+    <nb-card-body class="grid">
+      <nb-menu [items]="outline" style="box-shadow:0 4px 8px 0px rgba(0,0,0,0.2);" tag="outline"></nb-menu>
+
+
+    </nb-card-body>
+  </nb-card>
 </nb-layout-column>
-<nb-layout-column>B</nb-layout-column>
