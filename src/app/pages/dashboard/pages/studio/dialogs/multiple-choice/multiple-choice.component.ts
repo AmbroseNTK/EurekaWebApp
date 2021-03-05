@@ -16,17 +16,11 @@ export class MultipleChoiceComponent implements OnInit {
   mode = 'create';
 
   @Input()
-  public set quiz(q: Quiz) {
-    q.title = this.title;
-    this.multipleChoice = <MultipleChoices>JSON.parse(q.question)
-  }
-
-  @Input()
   public courseId;
 
-  public title = "";
+  public quiz: Quiz = {
 
-  public qid = "";
+  }
 
   multipleChoice: MultipleChoices = {
     prompt: "",
@@ -47,7 +41,7 @@ export class MultipleChoiceComponent implements OnInit {
   create() {
     console.log(this.multipleChoice);
     this.quizService.createQuiz(this.courseId, {
-      title: title,
+      title: this.quiz.title,
       course_id: this.courseId,
       question: JSON.stringify(this.multipleChoice),
       type: "multiple_choices"
@@ -60,8 +54,8 @@ export class MultipleChoiceComponent implements OnInit {
 
   update() {
     this.quizService.updateQuiz(this.courseId, {
-      _id: this.qid,
-      title: title,
+      _id: this.quiz['id'],
+      title: this.quiz.title,
       course_id: this.courseId,
       question: JSON.stringify(this.multipleChoice),
       type: "multiple_choices"

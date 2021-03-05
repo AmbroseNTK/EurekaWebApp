@@ -47,10 +47,10 @@ export class EditorComponent implements OnInit, OnChanges {
     this.startDate = date;
   }
 
-  setMarketingContent(content) {
-    console.log(content);
-    this.marketingContent = content.html;
-  }
+  // setMarketingContent(content) {
+  //   console.log(content);
+  //   this.marketingContent = content.html;
+  // }
 
   updateInfo() {
     this.courseService.updateCourse({
@@ -79,7 +79,7 @@ export class EditorComponent implements OnInit, OnChanges {
       is_public: this.isPublicControl.value,
       start_date: Date.parse(this.startDateControl.value),
       author_name: this.authorNameControl.value,
-      marketing_content: this.course.marketing_content
+      marketing_content: this.marketingContent
 
     }).then(() => {
       this.toast.success("", "Updated");
