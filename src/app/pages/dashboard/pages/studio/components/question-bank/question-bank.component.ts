@@ -35,12 +35,16 @@ export class QuestionBankComponent implements OnInit, OnChanges {
   }
 
   createMultipleChoice() {
-    this.dialog.open(MultipleChoiceComponent, {
+    let diag = this.dialog.open(MultipleChoiceComponent, {
       context: {
         mode: 'create',
         courseId: this.course.id
       }
     });
+
+    diag.onClose.toPromise().then(() => {
+      this.ngOnChanges(null);
+    })
   }
 
   edit(quiz: Quiz) {
@@ -52,7 +56,7 @@ export class QuestionBankComponent implements OnInit, OnChanges {
             courseId: this.course.id,
             mode: 'update',
             multipleChoice: multipleChoices,
-            qid: quiz['id']
+            quiz: quiz
           }
         });
     }

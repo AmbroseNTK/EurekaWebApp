@@ -26,13 +26,8 @@ export class QuizService {
   }
   createQuiz(courseId: string, quiz: Quiz) {
     return this.http.post(`${environment.ENDPOINT}/courses/quiz`, {
-      course_id: quiz.course_id,
-      question: quiz.question,
-      answer: quiz.answer,
-      correctanswer: quiz.correctanswer,
-      score: quiz.score,
-      type: quiz.type,
-      last_update: quiz.last_update
+      id: quiz._id,
+      ...quiz
     }, {
       headers: {
         Authorization: this.auth.getIdToken()

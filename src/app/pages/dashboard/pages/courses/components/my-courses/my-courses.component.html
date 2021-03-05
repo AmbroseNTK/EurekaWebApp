@@ -1,14 +1,16 @@
 <div class="grid" *ngIf="enrolledCourses.length!==0">
-    <div *ngFor="let course of enrolledCourses " class="w3-card-2 w3-hover-shadow"
-        style="margin:5px; width:200px; min-height: 300px; cursor: pointer;">
-        <img *ngIf="course.photo_url != ''" [src]="course.photo_url" [alt]="course.name"
-            style="width:100%; max-height: 200px;">
-        <div *ngIf="course.photo_url ==''"
-            style="width:100%; height: 200px;align-items: center;justify-items: center;display: flex;justify-content: center;">
-            <h2>{{course.name}}</h2>
-        </div>
-        <div class="w3-container w3-center">
-            <h3 style="font-size: 1.2rem;">{{course.name}}</h3>
-        </div>
+  <div *ngFor="let course of enrolledCourses " class="w3-card-2 w3-hover-shadow"
+    style="margin:5px; width:200px; min-height: 300px; cursor: pointer;"
+    [routerLink]="'/dashboard/classroom/'+course.id">
+    <img *ngIf="course.photo_url != ''" [src]="course.photo_url" [alt]="course.name"
+      style="width:100%; max-height: 200px;">
+    <div *ngIf="course.photo_url ==''"
+      style="width:100%; height: 200px;align-items: center;justify-items: center;display: flex;justify-content: center;">
+      <h2>{{course.name}}</h2>
     </div>
+    <div class="w3-container w3-center">
+      <h3 style="font-size: 1.2rem;">{{course.name}}</h3>
+      <button nbButton></button>
+    </div>
+  </div>
 </div>
