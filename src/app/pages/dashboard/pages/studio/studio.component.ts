@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Course } from 'src/app/models/course.model';
 import { CourseService } from 'src/app/services/course/course.service';
+import { MiscService } from 'src/app/services/misc/misc.service';
 import { CreateCourseComponent } from './dialogs/create-course/create-course.component';
 
 @Component({
@@ -11,7 +12,7 @@ import { CreateCourseComponent } from './dialogs/create-course/create-course.com
 })
 export class StudioComponent implements OnInit {
 
-  constructor(private courseService: CourseService, private dialog: NbDialogService) { }
+  constructor(private courseService: CourseService, private dialog: NbDialogService, public miscService: MiscService) { }
 
   public courses: Array<Course>;
   public selectedCourse: Course = null;
@@ -39,6 +40,7 @@ export class StudioComponent implements OnInit {
     console.log(course as Course);
     this.selectedCourse = <Course>course;
     this.currentTab = 'Course Editor';
+    console.log(this.miscService.getShortTitle(course.name));
   }
 
 }

@@ -32,7 +32,7 @@ export class ShowCourseComponent implements OnInit {
     this.enrollService.enrollCourse(courseId).then(() => {
       this.toastService.success(`Enrolled [${courseId}] successfully`, "Enrolled course");
     }).catch((e) => {
-      this.toastService.danger(e);
+      this.toastService.danger("", e.error.message);
     })
   }
 }
