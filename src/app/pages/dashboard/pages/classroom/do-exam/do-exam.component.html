@@ -37,9 +37,9 @@
   </nb-card-body>
   <nb-card-footer>
     <button *ngIf="!finished" nbButton status="primary" style="float:right;" (click)="submit()">Submit</button>
+    <button *ngIf="finished" nbButton status="danger" style="float:right;margin-right: 10px;"
+      (click)="close()">Close</button>
     <button *ngIf="finished" nbButton status="primary" style="float:right;" (click)="viewResult()">View
       Result</button>
-    <button *ngIf="finished" nbButton status="primary" style="float:right;margin-right: 10px;"
-      (click)="close()">Close</button>
   </nb-card-footer>
 </nb-card>
