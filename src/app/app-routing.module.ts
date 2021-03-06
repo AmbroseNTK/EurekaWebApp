@@ -10,11 +10,11 @@ const routes: Routes = [
   { path: 'courses', loadChildren: () => import('./pages/dashboard/pages/courses/courses.module').then(m => m.CoursesModule) },
 
 
-  // {
-  //   path: '**',
-  //   pathMatch: "full",
-  //   redirectTo: 'login'
-  // }
+  {
+    path: '**',
+    pathMatch: "full",
+    redirectTo: 'login'
+  }
 ];
 
 @NgModule({

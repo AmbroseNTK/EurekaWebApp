@@ -5,8 +5,8 @@
     </a>
     <p style="margin-left: 1%; font-size: x-large;color:#fff; font-weight: bold;">Eureka</p>
     <div style="flex:1 auto;"></div>
-    <nb-user *ngIf="user" picture="assets/images/person-outline.svg" [name]="user.email" [nbPopover]="accountPopoverRef"
-      nbPopoverPlacement="bottom" shape="round" style="cursor: pointer; color: #fff;">
+    <nb-user *ngIf="user" [name]="user.email" [title]="user.role" [nbPopover]="accountPopoverRef"
+      nbPopoverPlacement="bottom" shape="round" color="#fff" style="cursor: pointer;">
     </nb-user>
     <ng-template #accountPopoverRef style="background-color: transparent;">
       <div style="width: 200px;padding: 10px;
