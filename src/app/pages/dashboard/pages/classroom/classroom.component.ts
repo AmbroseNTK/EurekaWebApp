@@ -16,13 +16,23 @@ export class ClassroomComponent implements OnInit {
   courseId = "";
   course: Course = null;
 
-  //outline: Array<NbMenuItem> = [];
+  outline: Array<NbMenuItem> = [];
 
   ngOnInit(): void {
+
     this.activatedRoute.params.subscribe(async (params) => {
       this.courseId = params["id"];
       await this.loadCourse();
       await this.loadOutline();
+      if (this.activatedRoute.children.length > 0) {
+        this.activatedRoute.children[0].url.subscribe((url) => {
+          if (url.length > 1) {
+            let id = url[1].path;
+            console.log(id);
+            this.router.navigate([`./section/${id}`], { relativeTo: this.activatedRoute }).then((r) => console.log(r)).catch((e) => console.log(e))
+          }
+        });
+      }
     });
 
     this.menuService.onItemClick().subscribe((bag) => {
