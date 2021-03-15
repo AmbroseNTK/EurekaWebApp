@@ -122,7 +122,7 @@ export class DoExamComponent implements OnInit {
       this.availableSpeech = false;
     }
   }
-
+  
   soundClick(value) {
     console.log(value);
     if(this.availableSpeech)
