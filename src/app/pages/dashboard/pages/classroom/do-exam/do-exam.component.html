@@ -21,8 +21,9 @@
             <div>{{parsedQuiz[i]['prompt']}}</div>
           </nb-card-header>
           <nb-card-header *ngIf="submission">
-            <h5 *ngIf="submission.quizzes[i]['score']>0" status="success">Got: {{submission.quizzes[i]['score']}}</h5>
-            <h5 *ngIf="submission.quizzes[i]['score']==0" status="danger">Got: 0</h5>
+            <h5 *ngIf="submission.quizzes[i]['score']>0" status="success">Got: {{submission.quizzes[i]['score']}}
+              point(s)</h5>
+            <h5 *ngIf="!submission.quizzes[i]['score']" status="danger">Got: 0 point</h5>
           </nb-card-header>
           <nb-card-body>
             <nb-radio-group [(value)]="quiz.answer" [name]="quiz.id">

@@ -30,16 +30,12 @@ export class SectionFormComponent implements OnInit {
     this.photoUrlControl = new FormControl(this.photoUrl);
   }
 
-  setContent(content) {
-    this.editContent = content.html;
-  }
-
   create() {
     this.courseService.createSectionOfCourse({
       course_id: this.courseId,
       parent: this.parentId,
       name: this.nameControl.value,
-      content: this.editContent,
+      content: this.content,
       photo_url: this.photoUrlControl.value
     }).then(() => {
       this.close();
@@ -54,7 +50,7 @@ export class SectionFormComponent implements OnInit {
       course_id: this.courseId,
       parent: this.parentId,
       name: this.nameControl.value,
-      content: this.editContent,
+      content: this.content,
       photo_url: this.photoUrlControl.value
     }).then(() => {
       this.close();

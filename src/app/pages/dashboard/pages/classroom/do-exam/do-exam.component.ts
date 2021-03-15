@@ -30,6 +30,7 @@ export class DoExamComponent implements OnInit {
   submission: SubmittedExams = null;
 
   finished = false;
+  submitted = false;
 
   ngOnInit(): void {
     this.parsedQuiz = [];
@@ -63,10 +64,14 @@ export class DoExamComponent implements OnInit {
   }
 
   submit() {
+    if (this.submitted) {
+      return;
+    }
     console.log(this.takenExams);
     this.examService.submitExam(this.courseId, this.takenExams).then(() => {
       this.toast.success("", "Finish the test");
       this.finished = true;
+      this.submitted = true;
     }).catch((err) => {
       this.toast.danger(err.error.message, "Cannot submit the test");
     });

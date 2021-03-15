@@ -61,7 +61,8 @@ export class EditorComponent implements OnInit, OnChanges {
       allow_enroll: this.allowEnrollControl.value,
       is_public: this.isPublicControl.value,
       start_date: Date.parse(this.startDateControl.value),
-      author_name: this.authorNameControl.value
+      author_name: this.authorNameControl.value,
+      marketing_content: this.marketingContent
     }).then(() => {
       this.toast.success("", "Updated");
     }).catch((err) => {
