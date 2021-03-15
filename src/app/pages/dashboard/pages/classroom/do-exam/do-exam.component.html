@@ -17,15 +17,16 @@
     <nb-list style="height: 100%;width: 100%;">
       <nb-list-item *ngFor="let quiz of takenExams.quizzes; let i = index;">
         <nb-card *ngIf="quiz.type=='multiple_choices'" style="width: 100%;">
-          <nb-card-header>
-            <div>{{i+1}}. {{parsedQuiz[i]['prompt']}}</div>
+          <nb-card-header style="display: flex; justify-content: space-between;">
+            <div style=" display: flex; justify-content: center;align-items: center;">{{parsedQuiz[i]['prompt']}}</div>
+            <button nbButton ghost status="info" size="small" (click)="soundClick(parsedQuiz[i]['prompt'])"><nb-icon icon="volume-up"></nb-icon></button>
           </nb-card-header>
           <nb-card-header *ngIf="submission">
             <h5 *ngIf="submission.quizzes[i]['score']>0" status="success">Got: {{submission.quizzes[i]['score']}}</h5>
             <h5 *ngIf="submission.quizzes[i]['score']==0" status="danger">Got: 0</h5>
           </nb-card-header>
           <nb-card-body>
-            <nb-radio-group [(value)]="quiz.answer" [name]="quiz.id">
+            <nb-radio-group [(value)]="quiz.answer" [name]="quiz._id">
               <nb-radio *ngFor="let choice of parsedQuiz[i]['choices']" [value]="choice.id" [disabled]="finished">
                 <div [innerHTML]="choice.content"></div>
               </nb-radio>
