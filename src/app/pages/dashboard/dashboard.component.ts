@@ -3,6 +3,7 @@ import { NbDialogService, NbMenuItem, NbSidebarService } from '@nebular/theme';
 import { UserProfile } from 'src/app/models/user_profile.model';
 import { UserService } from 'src/app/services/user/user.service';
 import { LogoutComponent } from './pages/dialogs/logout/logout.component';
+import { ProfileComponent } from './pages/dialogs/profile/profile.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -49,6 +50,15 @@ export class DashboardComponent implements OnInit {
   }
   onLogout() {
     let dialog = this.dialog.open(LogoutComponent, {
+      context: {
+
+      }, hasBackdrop: true,
+      backdropClass: 'backdrop-blur',
+      closeOnBackdropClick: false,
+    });
+  }
+  openProfile() {
+    this.dialog.open(ProfileComponent, {
       context: {
 
       }, hasBackdrop: true,

@@ -18,7 +18,7 @@
       <nb-list-item *ngFor="let quiz of takenExams.quizzes; let i = index;">
         <nb-card *ngIf="quiz.type=='multiple_choices'" style="width: 100%;">
           <nb-card-header>
-            <div>{{parsedQuiz[i]['prompt']}}</div>
+            <div>{{i+1}}. {{parsedQuiz[i]['prompt']}}</div>
           </nb-card-header>
           <nb-card-header *ngIf="submission">
             <h5 *ngIf="submission.quizzes[i]['score']>0" status="success">Got: {{submission.quizzes[i]['score']}}</h5>

@@ -6,9 +6,10 @@ import { DashboardComponent } from './dashboard.component';
 import { NbActionsModule, NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbMenuModule, NbMenuService, NbPopoverModule, NbSidebarModule, NbSidebarService, NbTableModule, NbTabsetModule, NbUserModule } from '@nebular/theme';
 import { UserService } from 'src/app/services/user/user.service';
 import { LogoutComponent } from './pages/dialogs/logout/logout.component';
+import { ProfileComponent } from './pages/dialogs/profile/profile.component';
 
 @NgModule({
-  declarations: [DashboardComponent, LogoutComponent],
+  declarations: [DashboardComponent, LogoutComponent, ProfileComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
