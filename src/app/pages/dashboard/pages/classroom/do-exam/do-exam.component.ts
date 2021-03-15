@@ -6,6 +6,7 @@ import { Exams, SubmittedExams, TakenExams } from 'src/app/models/exams.model';
 import { MultipleChoices } from 'src/app/models/multiple_choices.models';
 import { Quiz } from 'src/app/models/quiz.model';
 import { ExamService } from 'src/app/services/exam/exam.service';
+import Speech from "speak-tts";
 
 @Component({
   templateUrl: './do-exam.component.html',
@@ -31,6 +32,9 @@ export class DoExamComponent implements OnInit {
 
   finished = false;
 
+  speech: any;
+  speechData: any;
+  availableSpeech: boolean;
   ngOnInit(): void {
     this.parsedQuiz = [];
     let interval = setInterval(() => {
@@ -56,6 +60,9 @@ export class DoExamComponent implements OnInit {
       }
     }
     console.log(this.parsedQuiz);
+
+    this._initSound();
+   
   }
 
   getMultipleChoice(quiz: Quiz): MultipleChoices {
@@ -84,4 +91,50 @@ export class DoExamComponent implements OnInit {
     this.ref.close();
   }
 
+  _initSound(){
+    this.speech = new Speech() // will throw an exception if not browser supported
+    if(this.speech .hasBrowserSupport()) { // returns a boolean
+        console.log("speech synthesis supported")
+        this.availableSpeech = true;
+        this.speech.init({
+                'volume': 1,
+                'lang': 'en-GB',
+                'rate': 1,
+                'pitch': 1,
+                'voice':'Google UK English Male',
+                'splitSentences': true,
+                'listeners': {
+                    'onvoiceschanged': (voices) => {
+                        console.log("Event voiceschanged", voices)
+                    }
+                }
+        }).then((data) => {
+            // The "data" object contains the list of available voices and the voice synthesis params
+            // console.log("Speech is ready, voices are available", data)
+            this.speechData = data;
+            //data.voices.forEach(voice => {
+            //console.log(voice.name + " "+ voice.lang)
+            //});
+        }).catch(e => {
+            console.error("An error occured while initializing : ", e)
+        })
+    }else{
+      this.availableSpeech = false;
+    }
+  }
+
+  soundClick(value) {
+    console.log(value);
+    if(this.availableSpeech)
+    {
+      this.speech.speak({
+        text: value,
+      }).then(() => {
+        console.log("Success !")
+      });
+    }
+    else{
+      this.toast.warning("Try it with Chrome or Firefox" , "The browser is not support");
+    }
+  }
 }
