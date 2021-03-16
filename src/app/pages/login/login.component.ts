@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
     }
   }
   async signup() {
+    this.user = { email: this.username, password: this.password };
     await this.authService.registerUser(this.user).then((value) => {
       console.log(value);
       this.toggleView();

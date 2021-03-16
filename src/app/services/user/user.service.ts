@@ -70,7 +70,7 @@ export class UserService {
     }).toPromise();
   }
   getEnrolledCourses() {
-    return this.http.get(`${environment.ENDPOINT}/courses/`, {
+    return this.http.get(`${environment.ENDPOINT}/users/courses`, {
       headers: {
         Authorization: this.auth.getIdToken()
       }
